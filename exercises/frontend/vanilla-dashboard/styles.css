@@ -1,0 +1,87 @@
+:root {
+  color-scheme: light;
+  font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+  line-height: 1.5;
+  color: #172016;
+  background: #eef3e9;
+  --ink: #172016;
+  --muted: #596454;
+  --panel: #fbfdf8;
+  --line: #ccd6c5;
+  --accent: #2f6b3c;
+  --danger: #a52b2b;
+}
+
+* { box-sizing: border-box; }
+
+body { margin: 0; min-width: 320px; }
+
+button,
+input,
+select { font: inherit; }
+
+button,
+input,
+select {
+  min-height: 2.75rem;
+  border: 1px solid var(--line);
+  border-radius: 0.6rem;
+}
+
+button {
+  padding: 0.55rem 0.9rem;
+  color: white;
+  background: var(--accent);
+  cursor: pointer;
+}
+
+:focus-visible {
+  outline: 3px solid #e1a62b;
+  outline-offset: 2px;
+}
+
+.app-shell {
+  width: min(100% - 2rem, 64rem);
+  margin-inline: auto;
+  padding-block: 3rem;
+}
+
+.page-header { margin-bottom: 2rem; }
+.page-header h1 { margin: 0; font-size: clamp(2.25rem, 7vw, 4rem); line-height: 1; }
+.page-header p { color: var(--muted); }
+.eyebrow { margin-bottom: 0.5rem; text-transform: uppercase; letter-spacing: 0.12em; font-weight: 700; }
+
+.panel {
+  margin-top: 1rem;
+  padding: clamp(1rem, 4vw, 2rem);
+  border: 1px solid var(--line);
+  border-radius: 1rem;
+  background: var(--panel);
+}
+
+.panel h2 { margin-top: 0; }
+.field { display: grid; gap: 0.35rem; }
+.field input,
+.field select,
+.search input { width: 100%; padding-inline: 0.75rem; background: white; }
+.error { min-height: 1.5em; margin: 0; color: var(--danger); }
+
+#task-form { display: grid; gap: 1rem; }
+.section-heading { display: grid; gap: 1rem; }
+.section-heading h2 { margin-bottom: 0; }
+.section-heading p { margin-top: 0.25rem; color: var(--muted); }
+.search { display: grid; gap: 0.35rem; }
+
+.filters { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-block: 1.5rem; }
+.filters button[aria-pressed="false"] { color: var(--ink); background: transparent; }
+.task-list { display: grid; gap: 0.75rem; padding: 0; list-style: none; }
+.empty-state { padding: 2rem; text-align: center; color: var(--muted); border: 1px dashed var(--line); border-radius: 0.75rem; }
+
+/* TODO: Create task-card styles, completed styles, priority badges, and delete button. */
+
+@media (min-width: 42rem) {
+  #task-form { grid-template-columns: minmax(0, 1fr) 10rem auto; align-items: start; }
+  #task-form button { margin-top: 1.85rem; }
+  .section-heading { grid-template-columns: 1fr minmax(14rem, 20rem); align-items: end; }
+}
+

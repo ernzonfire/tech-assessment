@@ -1,0 +1,340 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="A focused technical interview preparation guide for frontend and MERN developer interviews."
+    />
+    <title>Tech Interview Guide · MERN Grind</title>
+    <link rel="stylesheet" href="./interview-guide.css" />
+    <script type="module" src="./interview-guide.js"></script>
+  </head>
+  <body>
+    <header class="guide-topbar">
+      <a class="guide-brand" href="./index.html" aria-label="MERN Grind home">
+        <span class="brand-mark">JS</span>
+        <span><strong>Interview Guide</strong><small>MERN Grind</small></span>
+      </a>
+
+      <nav aria-label="Main navigation">
+        <a href="./index.html">Syntax library</a>
+        <a href="./practice.html">Practice lab</a>
+        <a class="active" href="./interview-guide.html" aria-current="page">Interview guide</a>
+      </nav>
+
+      <a class="practice-link" href="./practice.html">Start coding</a>
+    </header>
+
+    <div class="guide-layout">
+      <aside class="guide-sidebar" aria-label="Interview guide sections">
+        <p class="sidebar-label">On this page</p>
+        <nav class="section-nav">
+          <a class="active" href="#guidelines"><span>01</span>Guidelines</a>
+          <a href="#technical"><span>02</span>Technical concepts</a>
+          <a href="#engineering"><span>03</span>General engineering</a>
+          <a href="#situational"><span>04</span>Situational questions</a>
+          <a href="#coding"><span>05</span>Coding questions</a>
+        </nav>
+
+        <div class="sidebar-tip">
+          <strong>Answering rule</strong>
+          <p>Be clear, specific, and concise. Explain your reasoning—not only the final answer.</p>
+        </div>
+      </aside>
+
+      <main>
+        <section class="guide-hero" aria-labelledby="page-title">
+          <div>
+            <p class="eyebrow">Technical interview prep</p>
+            <h1 id="page-title">Walk in prepared.<br /><em>Explain with confidence.</em></h1>
+            <p class="hero-copy">
+              A practical checklist and question bank for frontend and MERN interviews. Review one section at a time, then practice answering aloud without notes.
+            </p>
+          </div>
+
+          <div class="readiness-card" aria-live="polite">
+            <div>
+              <p>Interview readiness</p>
+              <strong id="readiness-percent">0%</strong>
+            </div>
+            <div class="readiness-track" aria-hidden="true"><span id="readiness-bar"></span></div>
+            <small id="readiness-label">0 of 7 preparation steps complete</small>
+          </div>
+        </section>
+
+        <section id="guidelines" class="guide-section" aria-labelledby="guidelines-heading">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">Part I</p>
+              <h2 id="guidelines-heading">Interview guidelines</h2>
+            </div>
+            <span>Start here</span>
+          </div>
+
+          <div class="prep-grid">
+            <article class="prep-checklist">
+              <div class="card-heading">
+                <div>
+                  <p class="card-kicker">Completion requirements</p>
+                  <h3>Your preparation checklist</h3>
+                </div>
+                <button id="reset-progress" type="button">Reset</button>
+              </div>
+
+              <div class="checklist-items">
+                <label>
+                  <input type="checkbox" data-guide-task="job-description" />
+                  <span><strong>Read the job description</strong>Keep an accessible copy with you during the interview.</span>
+                </label>
+                <label>
+                  <input type="checkbox" data-guide-task="introduction" />
+                  <span><strong>Prepare your self-introduction</strong>Expand on your résumé instead of repeating it word for word.</span>
+                </label>
+                <label>
+                  <input type="checkbox" data-guide-task="fundamentals" />
+                  <span><strong>Review programming fundamentals</strong>Make sure you can explain the “why,” not just remember syntax.</span>
+                </label>
+                <label>
+                  <input type="checkbox" data-guide-task="coding" />
+                  <span><strong>Do regular coding challenges</strong>Practice narrating your approach while you solve.</span>
+                </label>
+                <label>
+                  <input type="checkbox" data-guide-task="project" />
+                  <span><strong>Prepare one project story</strong>Cover what it does, its design, your rationale, challenges, and solutions.</span>
+                </label>
+                <label>
+                  <input type="checkbox" data-guide-task="concepts" />
+                  <span><strong>Rehearse conceptual questions</strong>Review HTML, CSS, JavaScript, React, Node.js, databases, and engineering.</span>
+                </label>
+                <label>
+                  <input type="checkbox" data-guide-task="situations" />
+                  <span><strong>Practice situational and logic questions</strong>Use specific examples and think aloud through unfamiliar problems.</span>
+                </label>
+              </div>
+            </article>
+
+            <article class="intro-card">
+              <p class="card-kicker">60–90 second opening</p>
+              <h3>Self-introduction formula</h3>
+              <ol>
+                <li><span>01</span><div><strong>Name + nickname</strong><p>Introduce yourself and say what the interviewer can call you.</p></div></li>
+                <li><span>02</span><div><strong>Passion + strongest skills</strong><p>Share what kind of work energizes you and where you are strongest.</p></div></li>
+                <li><span>03</span><div><strong>One highlight project</strong><p>Name the problem, what you built, and your contribution.</p></div></li>
+                <li><span>04</span><div><strong>Interests + hobbies</strong><p>End with one or two details that make you memorable.</p></div></li>
+              </ol>
+            </article>
+          </div>
+
+          <article class="example-answer">
+            <div class="quote-mark" aria-hidden="true">“</div>
+            <div>
+              <p class="card-kicker">Example introduction</p>
+              <blockquote>
+                Hi, my name is Juan Dela Cruz, and you can call me Juan. I’m passionate about web development, especially making beautiful and easy-to-use interfaces. My strength is React and functional components. I recently worked on an e-commerce project for my friend’s plant business. I enjoy learning new React design patterns, and outside coding I like mountain climbing and reading books.
+              </blockquote>
+              <p class="example-note">Use this as a structure, not a script. Replace every detail with your own experience and natural speaking style.</p>
+            </div>
+          </article>
+
+          <article class="project-framework">
+            <div>
+              <p class="card-kicker">Project walkthrough</p>
+              <h3>Explain a project succinctly</h3>
+              <p>Start broad, go one level deeper into your decisions, then finish with evidence of growth.</p>
+            </div>
+            <ol>
+              <li><span>What</span><p>What is the project, who is it for, and what does it do?</p></li>
+              <li><span>Design</span><p>How is the software structured, and what did you personally own?</p></li>
+              <li><span>Why</span><p>What trade-offs did you consider, and why did you choose this approach?</p></li>
+              <li><span>Challenge</span><p>What went wrong, and how did you diagnose and overcome it?</p></li>
+              <li><span>Result</span><p>What changed because of your work, and what would you improve next?</p></li>
+            </ol>
+          </article>
+        </section>
+
+        <section id="technical" class="guide-section" aria-labelledby="technical-heading">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">Part II</p>
+              <h2 id="technical-heading">Technical concept questions</h2>
+            </div>
+            <span>34 questions</span>
+          </div>
+          <p class="section-intro">Open a topic, answer each question aloud, then verify your explanation in the syntax library or documentation.</p>
+
+          <div class="question-groups">
+            <details class="question-group" open>
+              <summary><span><b>HTML</b><small>Documents, scripts, and language</small></span><strong>2</strong></summary>
+              <ol>
+                <li>What’s the difference between <code>async</code> and <code>defer</code> attributes used in a <code>&lt;script&gt;</code> tag?</li>
+                <li>How do you serve a page with content in multiple languages?</li>
+              </ol>
+            </details>
+
+            <details class="question-group">
+              <summary><span><b>CSS</b><small>Layout, selectors, and responsive design</small></span><strong>9</strong></summary>
+              <ol>
+                <li>Explain your understanding of the box model.</li>
+                <li>What’s the difference between a relative, fixed, absolute, and statically positioned element?</li>
+                <li>What’s the difference between <code>inline</code> and <code>inline-block</code>?</li>
+                <li>What is CSS selector specificity, and how does it work?</li>
+                <li>What are functions and mixins?</li>
+                <li>Have you used Flexbox or CSS Grid before? What did you think?</li>
+                <li>What are the differences between Flexbox and CSS Grid?</li>
+                <li>How do you implement mobile-specific layouts?</li>
+                <li>How do you decide which responsive breakpoint to use?</li>
+              </ol>
+            </details>
+
+            <details class="question-group">
+              <summary><span><b>JavaScript</b><small>Language fundamentals and async behavior</small></span><strong>8</strong></summary>
+              <ol>
+                <li>Explain how <code>this</code> works in JavaScript.</li>
+                <li>What is a closure?</li>
+                <li>What is hoisting?</li>
+                <li>What is JSX?</li>
+                <li>What is the difference between <code>==</code> and <code>===</code>?</li>
+                <li>What is a ternary expression?</li>
+                <li>What is a Promise?</li>
+                <li>What is a callback?</li>
+              </ol>
+            </details>
+
+            <details class="question-group">
+              <summary><span><b>React</b><small>Components, data flow, and rendering</small></span><strong>6</strong></summary>
+              <ol>
+                <li>What is state? What are props? What is the difference between them?</li>
+                <li>What are two ways to create components in React?</li>
+                <li>How does the Virtual DOM work?</li>
+                <li>What is prop drilling, and how can you avoid it?</li>
+                <li>How can you style your React components?</li>
+                <li>Why are keys important?</li>
+              </ol>
+            </details>
+
+            <details class="question-group">
+              <summary><span><b>Node.js + databases</b><small>Runtime, packages, and data stores</small></span><strong>3</strong></summary>
+              <ol>
+                <li>What is the event loop?</li>
+                <li>What’s the purpose of <code>package-lock.json</code>?</li>
+                <li>What is the difference between SQL and NoSQL databases?</li>
+              </ol>
+            </details>
+
+            <details class="question-group">
+              <summary><span><b>Core web concepts</b><small>Architecture, inclusion, and performance</small></span><strong>6</strong></summary>
+              <ol>
+                <li>What is object-oriented programming?</li>
+                <li>What is a RESTful API?</li>
+                <li>What is web accessibility?</li>
+                <li>How do you pay attention to a site’s performance?</li>
+                <li>What performance techniques do you use?</li>
+                <li>How would you measure whether a performance improvement worked?</li>
+              </ol>
+            </details>
+          </div>
+        </section>
+
+        <section id="engineering" class="guide-section" aria-labelledby="engineering-heading">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">Part III</p>
+              <h2 id="engineering-heading">General engineering questions</h2>
+            </div>
+            <span>8 questions</span>
+          </div>
+
+          <div class="prompt-grid">
+            <article><span>01</span><h3>What is SDLC?</h3><p>Explain the Software Development Life Cycle and how work moves from planning through maintenance.</p></article>
+            <article><span>02</span><h3>What is Git?</h3><p>Describe version control and the branching strategies you are familiar with.</p></article>
+            <article><span>03</span><h3>How do you ensure software quality?</h3><p>Discuss code review, manual testing, unit tests, integration tests, and end-to-end automation.</p></article>
+            <article><span>04</span><h3>How do you continuously learn?</h3><p>Explain how you choose topics, practice, apply feedback, and measure improvement.</p></article>
+            <article><span>05</span><h3>Which standards do you apply?</h3><p>Talk about readability, consistency, accessibility, security, testing, and documentation.</p></article>
+            <article><span>06</span><h3>What excites you about coding?</h3><p>Connect your motivation to the kind of problems and users you enjoy serving.</p></article>
+            <article><span>07</span><h3>What recent challenge did you solve?</h3><p>Share your diagnosis, options, decision, result, and lesson—not just the bug itself.</p></article>
+            <article><span>08</span><h3>What is your web page workflow?</h3><p>Walk through requirements, structure, implementation, testing, review, and delivery.</p></article>
+          </div>
+        </section>
+
+        <section id="situational" class="guide-section" aria-labelledby="situational-heading">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">Part IV</p>
+              <h2 id="situational-heading">Situation-based questions</h2>
+            </div>
+            <span>Use STAR</span>
+          </div>
+
+          <div class="star-strip" aria-label="STAR answer structure">
+            <div><b>S</b><span><strong>Situation</strong>Set the context.</span></div>
+            <div><b>T</b><span><strong>Task</strong>Name your responsibility.</span></div>
+            <div><b>A</b><span><strong>Action</strong>Explain what you did and why.</span></div>
+            <div><b>R</b><span><strong>Result</strong>Share the outcome and lesson.</span></div>
+          </div>
+
+          <ol class="situation-list">
+            <li><span>01</span><p>Describe the most exciting project you have worked on and the biggest challenge you faced.</p></li>
+            <li><span>02</span><p>Give an example of a time when you set a goal and were able to meet or achieve it.</p></li>
+            <li><span>03</span><p>Give an example of a time when you set a goal and were not able to achieve it. What did you learn?</p></li>
+            <li><span>04</span><p>You’re working on a project with a tight deadline, but you are stuck because you do not know how to solve a bug. How will you handle the situation?</p></li>
+            <li><span>05</span><p>Tell us about a time you wrote code that you later realized could be significantly improved.</p></li>
+          </ol>
+        </section>
+
+        <section id="coding" class="guide-section" aria-labelledby="coding-heading">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">Part V</p>
+              <h2 id="coding-heading">Sample coding questions</h2>
+            </div>
+            <a href="./practice.html">Open Practice Lab ↗</a>
+          </div>
+
+          <div class="coding-grid">
+            <article class="coding-card">
+              <div class="coding-number">Challenge 01</div>
+              <h3>Duplicate an array</h3>
+              <p>Make this function return the original values twice in the same order.</p>
+              <pre><code>duplicate([1, 2, 3, 4, 5]);
+// [1, 2, 3, 4, 5, 1, 2, 3, 4, 5]</code></pre>
+              <details>
+                <summary>View one solution</summary>
+                <pre><code>function duplicate(items) {
+  return [...items, ...items];
+}</code></pre>
+              </details>
+            </article>
+
+            <article class="coding-card">
+              <div class="coding-number">Challenge 02</div>
+              <h3>FizzBuzz</h3>
+              <p>Loop from 1 to 100. Output “fizz” for multiples of 3, “buzz” for multiples of 5, and “fizzbuzz” for multiples of both.</p>
+              <pre><code>1, 2, "fizz", 4, "buzz", …, "fizzbuzz"</code></pre>
+              <details>
+                <summary>View one solution</summary>
+                <pre><code>for (let number = 1; number &lt;= 100; number += 1) {
+  if (number % 15 === 0) console.log("fizzbuzz");
+  else if (number % 3 === 0) console.log("fizz");
+  else if (number % 5 === 0) console.log("buzz");
+  else console.log(number);
+}</code></pre>
+              </details>
+            </article>
+          </div>
+
+          <aside class="coding-tip">
+            <strong>During a live coding question</strong>
+            <p>Clarify the input and expected output, state your approach, solve the simplest correct version, test edge cases, then discuss complexity and improvements.</p>
+          </aside>
+        </section>
+
+        <footer class="guide-footer">
+          <div><strong>Ready for a practice round?</strong><p>Choose one concept, explain it aloud, then solve one challenge without looking at the answer.</p></div>
+          <a href="./practice.html">Go to Practice Lab</a>
+        </footer>
+      </main>
+    </div>
+  </body>
+</html>

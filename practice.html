@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Solve JavaScript challenges directly in the browser." />
+    <title>Practice Lab · MERN Grind</title>
+    <link rel="stylesheet" href="./practice.css" />
+    <script type="module" src="./practice.js"></script>
+  </head>
+  <body>
+    <header class="practice-topbar">
+      <a class="practice-brand" href="./index.html">
+        <span>JS</span>
+        <strong>Practice Lab</strong>
+      </a>
+      <nav aria-label="Practice navigation">
+        <a href="./index.html">Syntax library</a>
+        <a href="./interview-guide.html">Interview guide</a>
+        <a id="concept-reference" href="./index.html#ref-if">Current concept ↗</a>
+      </nav>
+      <div class="scoreboard">
+        <span id="solved-count">0 / 15 solved</span>
+        <strong><span id="point-count">0</span> XP</strong>
+      </div>
+    </header>
+
+    <div class="practice-layout">
+      <aside class="challenge-sidebar" aria-label="Challenge list">
+        <div class="challenge-sidebar-heading">
+          <p>Phase 01</p>
+          <h2>JS Foundations</h2>
+          <div class="sidebar-progress"><span id="sidebar-progress-bar"></span></div>
+        </div>
+        <div id="challenge-list" class="challenge-list"></div>
+        <div class="upcoming-phases">
+          <p>Unlocks after foundations</p>
+          <span>DOM & Browser</span>
+          <span>React</span>
+          <span>Node + Express</span>
+          <span>MongoDB + MERN</span>
+        </div>
+      </aside>
+
+      <main class="challenge-workspace">
+        <section class="problem-pane" aria-labelledby="challenge-title">
+          <div class="problem-scroll">
+            <div class="challenge-meta">
+              <span id="challenge-rank">8 kyu</span>
+              <span id="challenge-category">Functions</span>
+              <strong id="challenge-points">+10 XP</strong>
+            </div>
+            <p id="challenge-number" class="challenge-number">Challenge 01</p>
+            <h1 id="challenge-title">Greet the User</h1>
+            <p id="challenge-description" class="challenge-description"></p>
+
+            <section class="problem-section">
+              <h2>Requirements</h2>
+              <ul id="challenge-requirements"></ul>
+            </section>
+
+            <section class="problem-section">
+              <h2>Examples</h2>
+              <div id="challenge-examples" class="example-list"></div>
+            </section>
+
+            <section class="problem-section concept-box">
+              <p>Concepts used</p>
+              <strong id="challenge-concept"></strong>
+            </section>
+
+            <section class="hint-box">
+              <div>
+                <p>Stuck?</p>
+                <span>Reveal one small hint at a time. Try for 15–20 minutes first.</span>
+              </div>
+              <button id="reveal-hint" type="button">Show hint</button>
+              <ol id="hint-list"></ol>
+            </section>
+          </div>
+        </section>
+
+        <section class="coding-pane" aria-label="Code editor and test results">
+          <div class="editor-toolbar">
+            <div class="editor-tabs" role="tablist" aria-label="Editor views">
+              <button id="solution-tab" class="active" type="button" role="tab" aria-selected="true">Solution</button>
+              <button id="tests-tab" type="button" role="tab" aria-selected="false">Visible tests</button>
+            </div>
+            <div class="editor-actions">
+              <button id="reset-code" class="quiet-button" type="button">Reset</button>
+              <button id="run-code" class="run-button" type="button">▶ Run tests</button>
+              <button id="submit-code" class="submit-button" type="button">Submit solution</button>
+            </div>
+          </div>
+
+          <div id="solution-view" class="editor-view" role="tabpanel" aria-labelledby="solution-tab">
+            <div class="editor-shell">
+              <pre id="line-numbers" class="line-numbers" aria-hidden="true">1</pre>
+              <textarea id="code-editor" aria-label="JavaScript solution editor" spellcheck="false" autocapitalize="off" autocomplete="off"></textarea>
+            </div>
+            <div class="editor-statusbar">
+              <span>JavaScript</span>
+              <span>Tab inserts 2 spaces</span>
+              <span><kbd>⌘</kbd> + <kbd>Enter</kbd> to run</span>
+            </div>
+          </div>
+
+          <div id="tests-view" class="visible-tests" role="tabpanel" aria-labelledby="tests-tab" hidden></div>
+
+          <section class="results-pane" aria-labelledby="results-heading">
+            <header>
+              <div>
+                <p>Test runner</p>
+                <h2 id="results-heading">Ready</h2>
+              </div>
+              <span id="run-summary">Run your code against the cases below.</span>
+            </header>
+            <div id="test-results" class="test-results">
+              <div class="runner-empty">
+                <strong>No run yet</strong>
+                <span>Your code runs in an isolated worker with a 2-second limit.</span>
+              </div>
+            </div>
+            <div id="console-output" class="console-output" hidden>
+              <strong>Console output</strong>
+              <pre></pre>
+            </div>
+          </section>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>

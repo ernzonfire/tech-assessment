@@ -1,0 +1,863 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="A complete zero-to-MERN full-stack crash course and syntax library." />
+    <title>Zero to MERN · Grind Library</title>
+    <link rel="stylesheet" href="./library.css" />
+    <script type="module" src="./library.js"></script>
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="brand" href="#top" aria-label="JS Grind Library home">
+        <span class="brand-mark">JS</span>
+        <span><strong>MERN Grind Library</strong><small>Zero to full-stack</small></span>
+      </a>
+      <label class="global-search">
+        <span class="sr-only">Search syntax library</span>
+        <input id="syntax-search" type="search" placeholder="Search syntax: array, fetch, API…" autocomplete="off" />
+        <kbd>/</kbd>
+      </label>
+      <a class="interview-link" href="./interview-guide.html">Interview guide</a>
+      <span id="result-count" class="result-count" aria-live="polite"></span>
+    </header>
+
+    <div id="top" class="layout">
+      <aside class="sidebar" aria-label="Learning roadmap">
+        <p class="sidebar-label">Learning path</p>
+        <nav class="roadmap">
+          <button class="roadmap-item active" type="button" data-filter="all"><span>00</span>All references</button>
+          <button class="roadmap-item" type="button" data-filter="basics"><span>01</span>JS foundations</button>
+          <button class="roadmap-item" type="button" data-filter="data"><span>02</span>Arrays & objects</button>
+          <button class="roadmap-item" type="button" data-filter="async"><span>03</span>Async JavaScript</button>
+          <button class="roadmap-item" type="button" data-filter="frontend"><span>04</span>Browser frontend</button>
+          <button class="roadmap-item" type="button" data-filter="react"><span>05</span>React</button>
+          <button class="roadmap-item" type="button" data-filter="node"><span>06</span>Node.js</button>
+          <button class="roadmap-item" type="button" data-filter="express"><span>07</span>Express APIs</button>
+          <button class="roadmap-item" type="button" data-filter="mongo"><span>08</span>MongoDB</button>
+          <button class="roadmap-item" type="button" data-filter="mern"><span>09</span>Full MERN</button>
+          <button class="roadmap-item" type="button" data-filter="testing"><span>10</span>Testing</button>
+        </nav>
+        <div class="sidebar-note">
+          <strong>Study rule</strong>
+          <p>Read → type it yourself → change the example → explain it without notes.</p>
+        </div>
+      </aside>
+
+      <main>
+        <section class="hero">
+          <div>
+            <p class="eyebrow">Your coding reference desk</p>
+            <h1>From `if/else` to<br /><em>a full MERN app.</em></h1>
+            <p class="hero-copy">Complete crash course from absolute zero: JavaScript → HTML/CSS/DOM → React → Node/Express → MongoDB → authentication and deployment.</p>
+          </div>
+          <div class="week-card">
+            <p>Current mission</p>
+            <strong>Day 1 · JS Foundations</strong>
+            <div class="progress-track"><span id="progress-bar"></span></div>
+            <small id="progress-label">0 of 4 steps done</small>
+          </div>
+        </section>
+
+        <section class="course-map" aria-labelledby="course-heading">
+          <div class="section-title library-title">
+            <div><p class="eyebrow">Full crash course</p><h2 id="course-heading">Zero-to-MERN roadmap</h2></div>
+            <p>Build one layer at a time. Each phase has a clear output before you move on.</p>
+          </div>
+          <div class="phase-grid">
+            <article><span>01 · Foundation</span><h3>Programming + JavaScript</h3><p>Variables, types, operators, if/else, switch, loops, functions.</p><strong>Output: logic drills</strong></article>
+            <article><span>02 · Data</span><h3>Arrays + Objects</h3><p>Array methods, destructuring, scope, closures, modules, Big-O.</p><strong>Output: data utilities</strong></article>
+            <article><span>03 · Web</span><h3>Async + HTTP</h3><p>Promises, async/await, fetch, JSON, errors, event loop.</p><strong>Output: API client</strong></article>
+            <article><span>04 · Frontend</span><h3>HTML + CSS + DOM</h3><p>Semantic markup, layouts, forms, events, state, accessibility.</p><strong>Output: vanilla task app</strong></article>
+            <article><span>05 · React</span><h3>Component UI</h3><p>JSX, props, state, effects, forms, router, fetching.</p><strong>Output: React dashboard</strong></article>
+            <article><span>06 · Node</span><h3>Server JavaScript</h3><p>npm, modules, environment variables, HTTP, filesystem.</p><strong>Output: Node server</strong></article>
+            <article><span>07 · Express</span><h3>REST API</h3><p>Routes, middleware, validation, status codes, errors.</p><strong>Output: CRUD API</strong></article>
+            <article><span>08 · MongoDB</span><h3>Database + Mongoose</h3><p>Documents, CRUD, schemas, validation, indexes, references.</p><strong>Output: persistent API</strong></article>
+            <article><span>09 · MERN</span><h3>Integration + Auth</h3><p>React ↔ API ↔ MongoDB, JWT/cookies, authorization, CORS.</p><strong>Output: full-stack app</strong></article>
+            <article><span>10 · Job ready</span><h3>Test + Deploy + Interview</h3><p>Unit/integration/E2E tests, Git, deployment, assessments.</p><strong>Output: portfolio capstone</strong></article>
+          </div>
+        </section>
+
+        <section class="start-panel" aria-labelledby="start-heading">
+          <div class="section-title">
+            <div><p class="eyebrow">Start here</p><h2 id="start-heading">Your first session</h2></div>
+            <span>60–90 min</span>
+          </div>
+          <div class="checklist">
+            <label><input type="checkbox" data-progress="review" /><span><strong>1. Review</strong> Read the JS foundation cards below.</span></label>
+            <label><input type="checkbox" data-progress="recall" /><span><strong>2. Recall</strong> Explain <code>const</code>, <code>===</code>, falsy, and <code>return</code> aloud.</span></label>
+            <label><input type="checkbox" data-progress="code" /><span><strong>3. Code</strong> Open Practice Lab and solve the challenge in the browser.</span></label>
+            <label><input type="checkbox" data-progress="test" /><span><strong>4. Verify</strong> Run tests and submit when every case passes.</span></label>
+          </div>
+          <div class="actions">
+            <a class="primary-action" href="./practice.html?challenge=greet-user">Practice in browser</a>
+            <button id="show-foundations" class="secondary-action" type="button">Open Day 1 syntax</button>
+            <a href="./exercises/javascript/day-01-foundations.js" target="_blank">Optional file-based drills</a>
+          </div>
+        </section>
+
+        <section class="foundation-guide" aria-labelledby="foundation-guide-heading">
+          <div class="section-title library-title">
+            <div><p class="eyebrow">Core lesson 01</p><h2 id="foundation-guide-heading">How JavaScript input becomes output</h2></div>
+            <p>Follow these in order: receive a value, clean it, decide with conditions, return a result, then display it.</p>
+          </div>
+
+          <div class="guided-grid">
+            <article class="syntax-card" data-category="basics" data-title="function anatomy declaration parameter argument call return">
+              <header><span>Step 1 · Function</span><h3>Create, call, and return</h3><button class="copy-button" type="button">Copy</button></header>
+              <p>A function is reusable behavior. A parameter receives input; an argument is the actual value passed during a call.</p>
+              <pre><code>function greet(name) {
+  return `Hello, ${name}!`;
+}
+
+const message = greet("Ana");
+// name = parameter
+// "Ana" = argument
+// message = "Hello, Ana!"</code></pre>
+              <aside><strong>Important:</strong> defining the function does not run it. <code>greet("Ana")</code> is the call.</aside>
+            </article>
+
+            <article class="syntax-card" data-category="basics" data-title="trim clean string input validation">
+              <header><span>Step 2 · Clean input</span><h3>Why and when to use `.trim()`</h3><button class="copy-button" type="button">Copy</button></header>
+              <p>Form input often contains accidental spaces. <code>.trim()</code> returns a cleaned string without changing the original.</p>
+              <pre><code>const rawName = "   Ana   ";
+const cleanName = rawName.trim();
+
+console.log(rawName);   // "   Ana   "
+console.log(cleanName); // "Ana"
+
+if (!cleanName) {
+  console.log("Name is required");
+}</code></pre>
+              <aside><strong>Before calling it:</strong> make sure the value is a string, e.g. <code>typeof value === "string"</code>.</aside>
+            </article>
+
+            <article class="syntax-card" data-category="basics" data-title="conditions if else if else comparison decision flow">
+              <header><span>Step 3 · Conditions</span><h3>Build an `if / else if / else` flow</h3><button class="copy-button" type="button">Copy</button></header>
+              <p>Conditions let a function choose one path. Put invalid guards first, then check numeric ranges from highest to lowest.</p>
+              <pre><code>function getGrade(score) {
+  if (!Number.isFinite(score) || score &lt; 0 || score &gt; 100) {
+    return "Invalid";
+  } else if (score &gt;= 90) {
+    return "A";
+  } else if (score &gt;= 80) {
+    return "B";
+  } else if (score &gt;= 75) {
+    return "C";
+  } else {
+    return "F";
+  }
+}</code></pre>
+              <aside><strong>Order matters:</strong> a score of 95 also passes <code>&gt;= 75</code>, so test the highest boundary first.</aside>
+            </article>
+
+            <article class="syntax-card" data-category="basics" data-title="return console log display textcontent output difference">
+              <header><span>Step 4 · Output</span><h3>`return` vs `console.log` vs page display</h3><button class="copy-button" type="button">Copy</button></header>
+              <p><code>return</code> gives a value to the caller. <code>console.log</code> is developer-only debugging. <code>textContent</code> shows text to the user.</p>
+              <pre><code>function greet(name) {
+  return `Hello, ${name}!`;
+}
+
+const message = greet("Ana");
+
+console.log(message); // DevTools console only
+
+const output = document.querySelector("#output");
+output.textContent = message; // visible in the page</code></pre>
+              <aside><strong>No automatic display:</strong> returning a value does not place it on the screen—you decide where that value goes.</aside>
+            </article>
+
+            <article class="syntax-card" data-category="basics" data-title="function parameters arguments default parameter multiple inputs">
+              <header><span>Functions</span><h3>Parameters, arguments, and defaults</h3><button class="copy-button" type="button">Copy</button></header>
+              <p>Parameters are names in the declaration. Arguments are values in the call. Defaults apply when an argument is omitted or undefined.</p>
+              <pre><code>function calculateTotal(price, quantity = 1) {
+  return price * quantity;
+}
+
+calculateTotal(100, 3); // 300
+calculateTotal(100);    // 100
+
+// price and quantity = parameters
+// 100 and 3 = arguments</code></pre>
+            </article>
+
+            <article class="syntax-card" data-category="basics" data-title="function scope local variable global variable block scope">
+              <header><span>Functions</span><h3>Local scope</h3><button class="copy-button" type="button">Copy</button></header>
+              <p>Variables created inside a function belong to that function. This prevents unrelated code from accidentally changing them.</p>
+              <pre><code>const taxRate = 0.12; // outer scope
+
+function addTax(price) {
+  const tax = price * taxRate; // local scope
+  return price + tax;
+}
+
+console.log(addTax(100)); // 112
+// console.log(tax);      // ReferenceError</code></pre>
+            </article>
+          </div>
+        </section>
+
+        <section class="library-section" aria-labelledby="library-heading">
+          <div class="section-title library-title">
+            <div><p class="eyebrow">Quick reference</p><h2 id="library-heading">Syntax library</h2></div>
+            <p><strong>Hover/focus highlighted syntax</strong> for its meaning. Click it—or use Breakdown—for the full reference.</p>
+          </div>
+
+          <details id="glossary-details" class="glossary-details">
+            <summary>
+              <span><strong>A–Z syntax and methods</strong><small>Every covered keyword, operator, method, and browser/server API.</small></span>
+              <span id="glossary-count"></span>
+            </summary>
+            <div id="glossary-grid" class="glossary-grid"></div>
+          </details>
+
+          <div id="empty-results" class="empty-results" hidden>No matching syntax found. Try a simpler keyword.</div>
+          <div id="syntax-grid" class="syntax-grid">
+            <article class="syntax-card" data-category="basics" data-title="variables const let">
+              <header><span>Basics</span><h3>Variables: `const` and `let`</h3><button class="copy-button" type="button">Copy</button></header>
+              <p>Use <code>const</code> by default. Use <code>let</code> only when the variable must be reassigned.</p>
+              <pre><code>const name = "Ernie";
+let score = 0;
+score = score + 1;
+
+// Avoid var in modern code.</code></pre>
+              <aside><strong>Remember:</strong> `const` objects can still have their properties changed.</aside>
+            </article>
+
+            <article class="syntax-card" data-category="basics" data-title="types typeof null undefined boolean number string">
+              <header><span>Basics</span><h3>Values and types</h3><button class="copy-button" type="button">Copy</button></header>
+              <p>Know what kind of value enters your function before operating on it.</p>
+              <pre><code>typeof "hello";        // "string"
+typeof 42;             // "number"
+typeof true;           // "boolean"
+typeof undefined;      // "undefined"
+typeof null;           // "object" (JS quirk)
+Array.isArray([]);     // true
+Number.isFinite(42);   // true</code></pre>
+            </article>
+
+            <article class="syntax-card" data-category="basics" data-title="string methods trim lowercase uppercase includes slice split replace length">
+              <header><span>Strings</span><h3>Essential string methods</h3><button class="copy-button" type="button">Copy</button></header>
+              <p>Strings are immutable: methods return a new string instead of changing the original.</p>
+              <pre><code>const raw = "  JavaScript Basics  ";
+const clean = raw.trim();              // "JavaScript Basics"
+clean.toLowerCase();                   // "javascript basics"
+clean.toUpperCase();                   // "JAVASCRIPT BASICS"
+clean.includes("Script");             // true
+clean.slice(0, 10);                    // "JavaScript"
+clean.split(" ");                      // ["JavaScript", "Basics"]
+clean.replace("Basics", "MERN");      // "JavaScript MERN"
+clean.length;                          // 17</code></pre>
+              <aside><strong>Common mistake:</strong> write <code>text.trim()</code>, not <code>trim(text)</code>, because trim is a string method.</aside>
+            </article>
+
+            <article class="syntax-card" data-category="basics" data-title="conversion string number boolean parseint parsefloat nan">
+              <header><span>Types</span><h3>Explicit type conversion</h3><button class="copy-button" type="button">Copy</button></header>
+              <p>Form values arrive as strings. Convert intentionally, then verify the result before calculating.</p>
+              <pre><code>String(42);            // "42"
+Number("42");          // 42
+Number("hello");       // NaN
+Boolean(1);           // true
+Boolean(0);           // false
+parseInt("42px", 10); // 42
+parseFloat("19.95");  // 19.95
+Number.isNaN(NaN);    // true</code></pre>
+              <aside><strong>Gotcha:</strong> <code>Number("")</code> is 0. Check for blank text before conversion when blank is invalid.</aside>
+            </article>
+
+            <article class="syntax-card" data-category="basics" data-title="logical operators and or not remainder comparison">
+              <header><span>Operators</span><h3>Comparisons and boolean logic</h3><button class="copy-button" type="button">Copy</button></header>
+              <p>Comparisons create booleans. Logical operators combine or reverse conditions.</p>
+              <pre><code>age &gt;= 18;                 // greater than or equal
+score !== "90";            // strict not equal
+quantity &lt;= stock;         // less than or equal
+number % 2 === 0;          // even number
+
+isAdult &amp;&amp; hasId;          // both must be truthy
+isAdmin || isOwner;        // at least one is truthy
+!user.active;              // reverse truthiness</code></pre>
+            </article>
+
+            <article class="syntax-card" data-category="basics" data-title="switch case default ternary conditional operator">
+              <header><span>Conditions</span><h3>`switch` and ternary choices</h3><button class="copy-button" type="button">Copy</button></header>
+              <p>Use <code>switch</code> for exact known values. Use a ternary for one small two-way choice.</p>
+              <pre><code>switch (status) {
+  case "open":
+    label = "In progress";
+    break;
+  case "done":
+    label = "Completed";
+    break;
+  default:
+    label = "Unknown";
+}
+
+const access = isAdmin ? "Full" : "Limited";</code></pre>
+              <aside><strong>Keep it readable:</strong> use regular <code>if/else</code> instead of nesting several ternaries.</aside>
+            </article>
+
+            <article class="syntax-card" data-category="basics" data-title="while loop break continue infinite loop">
+              <header><span>Loops</span><h3>`while`, `break`, and `continue`</h3><button class="copy-button" type="button">Copy</button></header>
+              <p>A while loop repeats while a condition remains truthy. Break stops; continue skips to the next iteration.</p>
+              <pre><code>let index = 0;
+
+while (index &lt; values.length) {
+  const value = values[index];
+  index += 1;
+
+  if (!Number.isFinite(value)) continue;
+  if (value === target) break;
+
+  console.log(value);
+}</code></pre>
+              <aside><strong>Infinite-loop warning:</strong> ensure something changes the condition, such as incrementing <code>index</code>.</aside>
+            </article>
+
+            <article class="syntax-card" data-category="data" data-title="array mutating methods push pop shift unshift splice">
+              <header><span>Arrays</span><h3>Add and remove array items</h3><button class="copy-button" type="button">Copy</button></header>
+              <p>These methods mutate the original array. Know what each method returns.</p>
+              <pre><code>const queue = ["b", "c"];
+
+queue.push("d");       // add at end
+queue.pop();           // remove/return last
+queue.unshift("a");    // add at beginning
+queue.shift();         // remove/return first
+queue.splice(1, 1);    // remove 1 item at index 1
+
+const copied = [...queue]; // non-mutating copy</code></pre>
+            </article>
+
+            <article class="syntax-card" data-category="data" data-title="array query methods includes indexof some every foreach sort join">
+              <header><span>Arrays</span><h3>Search, check, sort, and join</h3><button class="copy-button" type="button">Copy</button></header>
+              <p>Choose a method based on the result you need: boolean, index, side effect, sorted array, or string.</p>
+              <pre><code>items.includes("apple");             // boolean
+items.indexOf("apple");              // index or -1
+users.some(user =&gt; user.admin);     // any match?
+users.every(user =&gt; user.active);   // all match?
+users.forEach(user =&gt; console.log(user.name));
+
+const sorted = [...scores].sort((a, b) =&gt; a - b);
+const csv = items.join(", ");</code></pre>
+              <aside><strong>Mutation warning:</strong> <code>.sort()</code> changes its array, so copy first when order must be preserved.</aside>
+            </article>
+
+            <article class="syntax-card" data-category="data" data-title="object keys values entries hasown iterate properties">
+              <header><span>Objects</span><h3>Inspect and iterate objects</h3><button class="copy-button" type="button">Copy</button></header>
+              <p>Convert object properties into arrays when you need array methods or iteration.</p>
+              <pre><code>const user = { name: "Ana", age: 20 };
+
+Object.keys(user);              // ["name", "age"]
+Object.values(user);            // ["Ana", 20]
+Object.entries(user);           // [["name", "Ana"], ["age", 20]]
+Object.hasOwn(user, "name");    // true
+
+for (const [key, value] of Object.entries(user)) {
+  console.log(key, value);
+}</code></pre>
+            </article>
+
+            <article class="syntax-card" data-category="basics" data-title="equality coercion truthy falsy nullish">
+              <header><span>Basics</span><h3>Equality and fallbacks</h3><button class="copy-button" type="button">Copy</button></header>
+              <p>Prefer strict equality and explicit conversion. Use <code>??</code> when zero or blank text are valid.</p>
+              <pre><code>5 === 5;       // true
+5 === "5";     // false
+Number("5");   // 5
+
+0 || 10;      // 10
+0 ?? 10;      // 0</code></pre>
+              <aside><strong>Falsy:</strong> false, 0, "", null, undefined, NaN.</aside>
+            </article>
+
+            <article class="syntax-card" data-category="basics" data-title="if else condition switch ternary guard clause">
+              <header><span>Basics</span><h3>Conditions and guard clauses</h3><button class="copy-button" type="button">Copy</button></header>
+              <p>Handle invalid or exceptional cases early to keep the main path readable.</p>
+              <pre><code>function getLabel(score) {
+  if (!Number.isFinite(score)) return "Invalid";
+  if (score >= 90) return "Excellent";
+  if (score >= 75) return "Passed";
+  return "Review again";
+}</code></pre>
+            </article>
+
+            <article class="syntax-card" data-category="basics" data-title="function arrow parameter return">
+              <header><span>Basics</span><h3>Functions and return values</h3><button class="copy-button" type="button">Copy</button></header>
+              <p>Inputs enter through parameters; useful output leaves through <code>return</code>.</p>
+              <pre><code>function add(a, b) {
+  return a + b;
+}
+
+const multiply = (a, b) => a * b;
+
+const result = add(2, 3); // 5</code></pre>
+              <aside><strong>Gotcha:</strong> `console.log` prints; it does not return a value.</aside>
+            </article>
+
+            <article class="syntax-card" data-category="basics" data-title="loop for of while iteration">
+              <header><span>Basics</span><h3>Loops</h3><button class="copy-button" type="button">Copy</button></header>
+              <p>Use <code>for...of</code> when you need each array value; use an indexed loop when the index matters.</p>
+              <pre><code>for (const item of items) {
+  console.log(item);
+}
+
+for (let i = 0; i &lt; items.length; i += 1) {
+  console.log(i, items[i]);
+}</code></pre>
+            </article>
+
+            <article class="syntax-card" data-category="data" data-title="array push includes slice mutation">
+              <header><span>Data</span><h3>Array essentials</h3><button class="copy-button" type="button">Copy</button></header>
+              <p>Arrays are ordered collections. Know which operations mutate the original.</p>
+              <pre><code>const items = ["a", "b"];
+items.push("c");              // mutates
+
+const copy = [...items];      // new array
+const first = items[0];
+const hasA = items.includes("a");</code></pre>
+            </article>
+
+            <article class="syntax-card" data-category="data" data-title="map filter find some every reduce array methods">
+              <header><span>Data</span><h3>Array method decision guide</h3><button class="copy-button" type="button">Copy</button></header>
+              <p><code>map</code> transforms, <code>filter</code> selects, <code>find</code> retrieves one, <code>reduce</code> combines.</p>
+              <pre><code>const names = users.map(user => user.name);
+const active = users.filter(user => user.active);
+const ana = users.find(user => user.name === "Ana");
+const anyAdmin = users.some(user => user.role === "admin");
+const total = prices.reduce((sum, price) => sum + price, 0);</code></pre>
+            </article>
+
+            <article class="syntax-card" data-category="data" data-title="object destructuring spread rest optional chaining">
+              <header><span>Data</span><h3>Objects and destructuring</h3><button class="copy-button" type="button">Copy</button></header>
+              <p>Objects group named properties. Spread creates a shallow copy.</p>
+              <pre><code>const user = { id: 1, name: "Ana", active: true };
+const { name, active } = user;
+
+const updated = { ...user, active: false };
+const city = user.address?.city ?? "Unknown";</code></pre>
+            </article>
+
+            <article class="syntax-card" data-category="data" data-title="set map unique lookup dictionary">
+              <header><span>Data</span><h3>Set and Map</h3><button class="copy-button" type="button">Copy</button></header>
+              <p>A <code>Set</code> stores unique values. A <code>Map</code> stores key/value pairs with any key type.</p>
+              <pre><code>const unique = [...new Set([1, 1, 2])]; // [1, 2]
+
+const usersById = new Map();
+usersById.set("u1", { name: "Ana" });
+usersById.get("u1");</code></pre>
+            </article>
+
+            <article class="syntax-card" data-category="data" data-title="closure scope private state counter">
+              <header><span>Data</span><h3>Closures</h3><button class="copy-button" type="button">Copy</button></header>
+              <p>A returned function remembers variables from where it was created.</p>
+              <pre><code>function makeCounter() {
+  let count = 0;
+  return () => {
+    count += 1;
+    return count;
+  };
+}
+
+const next = makeCounter();</code></pre>
+            </article>
+
+            <article class="syntax-card" data-category="async" data-title="promise async await delay event loop">
+              <header><span>Async</span><h3>Promises and async/await</h3><button class="copy-button" type="button">Copy</button></header>
+              <p>An <code>async</code> function always returns a promise. <code>await</code> pauses that function, not the whole program.</p>
+              <pre><code>function delay(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+async function run() {
+  await delay(500);
+  return "done";
+}</code></pre>
+            </article>
+
+            <article class="syntax-card" data-category="async" data-title="fetch http json response ok api">
+              <header><span>Async</span><h3>Fetch JSON</h3><button class="copy-button" type="button">Copy</button></header>
+              <p><code>fetch</code> does not reject for HTTP 404/500. Always check <code>response.ok</code>.</p>
+              <pre><code>async function loadUsers() {
+  const response = await fetch("/api/users");
+  if (!response.ok) {
+    throw new Error(`HTTP ${response.status}`);
+  }
+  return response.json();
+}</code></pre>
+            </article>
+
+            <article class="syntax-card" data-category="async" data-title="try catch error handling finally throw">
+              <header><span>Async</span><h3>Error handling</h3><button class="copy-button" type="button">Copy</button></header>
+              <p>Catch where you can recover, translate, add context, or show a useful state.</p>
+              <pre><code>try {
+  const data = await loadUsers();
+  render(data);
+} catch (error) {
+  showError(error.message);
+} finally {
+  hideLoading();
+}</code></pre>
+            </article>
+
+            <article class="syntax-card" data-category="async" data-title="promise all parallel sequential concurrency">
+              <header><span>Async</span><h3>Parallel async work</h3><button class="copy-button" type="button">Copy</button></header>
+              <p>Start independent operations together. Keep sequential order only when one depends on another.</p>
+              <pre><code>const [user, tasks] = await Promise.all([
+  loadUser(),
+  loadTasks(),
+]);
+
+const outcomes = await Promise.allSettled(requests);</code></pre>
+            </article>
+
+            <article class="syntax-card" data-category="frontend" data-title="dom queryselector createelement textcontent render">
+              <header><span>Frontend</span><h3>Select and update the DOM</h3><button class="copy-button" type="button">Copy</button></header>
+              <p>Prefer safe DOM properties such as <code>textContent</code> for user-provided text.</p>
+              <pre><code>const heading = document.querySelector("#title");
+heading.textContent = "Hello";
+
+const item = document.createElement("li");
+item.textContent = userInput;
+list.append(item);</code></pre>
+            </article>
+
+            <article class="syntax-card" data-category="frontend" data-title="event listener submit click formdata preventdefault">
+              <header><span>Frontend</span><h3>Events and forms</h3><button class="copy-button" type="button">Copy</button></header>
+              <p>Handle form submission instead of relying only on button clicks.</p>
+              <pre><code>form.addEventListener("submit", event => {
+  event.preventDefault();
+  const data = new FormData(form);
+  const title = String(data.get("title") ?? "").trim();
+  if (!title) return;
+  addTask(title);
+});</code></pre>
+            </article>
+
+            <article class="syntax-card" data-category="frontend" data-title="localstorage json stringify parse persistence">
+              <header><span>Frontend</span><h3>Local browser storage</h3><button class="copy-button" type="button">Copy</button></header>
+              <p><code>localStorage</code> stores strings. Serialize structured values and parse defensively.</p>
+              <pre><code>localStorage.setItem("tasks", JSON.stringify(tasks));
+
+try {
+  const tasks = JSON.parse(localStorage.getItem("tasks") ?? "[]");
+} catch {
+  // Recover from malformed stored data.
+}</code></pre>
+            </article>
+
+            <article class="syntax-card" data-category="react" data-title="react component props jsx">
+              <header><span>React</span><h3>Component and props</h3><button class="copy-button" type="button">Copy</button></header>
+              <p>A component describes UI from its read-only props.</p>
+              <pre><code>function UserCard({ user }) {
+  return (
+    &lt;article&gt;
+      &lt;h2&gt;{user.name}&lt;/h2&gt;
+      &lt;p&gt;{user.email}&lt;/p&gt;
+    &lt;/article&gt;
+  );
+}</code></pre>
+            </article>
+
+            <article class="syntax-card" data-category="react" data-title="react state usestate update array immutable">
+              <header><span>React</span><h3>State updates</h3><button class="copy-button" type="button">Copy</button></header>
+              <p>Use the current-state callback when the next value depends on the previous one.</p>
+              <pre><code>const [tasks, setTasks] = useState([]);
+
+setTasks(current =>
+  current.map(task =>
+    task.id === id ? { ...task, done: true } : task
+  )
+);</code></pre>
+            </article>
+
+            <article class="syntax-card" data-category="react" data-title="react useeffect effect dependency cleanup">
+              <header><span>React</span><h3>Effects</h3><button class="copy-button" type="button">Copy</button></header>
+              <p>Effects synchronize with an external system. Clean up subscriptions and timers.</p>
+              <pre><code>useEffect(() => {
+  const id = setInterval(refresh, 5000);
+  return () => clearInterval(id);
+}, [refresh]);</code></pre>
+              <aside><strong>Rule:</strong> Do not use effects merely to calculate derived values.</aside>
+            </article>
+
+            <article class="syntax-card" data-category="node" data-title="node http server request response json">
+              <header><span>Backend</span><h3>Node HTTP server</h3><button class="copy-button" type="button">Copy</button></header>
+              <p>Every backend handler receives a request and produces a response.</p>
+              <pre><code>import http from "node:http";
+
+const server = http.createServer((req, res) => {
+  res.writeHead(200, { "content-type": "application/json" });
+  res.end(JSON.stringify({ status: "ok" }));
+});
+
+server.listen(3000);</code></pre>
+            </article>
+
+            <article class="syntax-card" data-category="node" data-title="node npm package json modules environment variables process env">
+              <header><span>Node</span><h3>npm, modules, and environment</h3><button class="copy-button" type="button">Copy</button></header>
+              <p>Node runs JavaScript outside the browser. npm manages scripts and packages.</p>
+              <pre><code>// package.json
+{
+  "type": "module",
+  "scripts": { "dev": "node --watch server.js" }
+}
+
+// ES module
+import { readFile } from "node:fs/promises";
+const port = Number(process.env.PORT ?? 3000);</code></pre>
+            </article>
+
+            <article class="syntax-card" data-category="express" data-title="express app route middleware listen json">
+              <header><span>Express</span><h3>Express server setup</h3><button class="copy-button" type="button">Copy</button></header>
+              <p>Express adds routing and middleware on top of Node's HTTP server.</p>
+              <pre><code>import express from "express";
+
+const app = express();
+app.use(express.json());
+
+app.get("/health", (req, res) => {
+  res.json({ status: "ok" });
+});
+
+app.listen(3000);</code></pre>
+            </article>
+
+            <article class="syntax-card" data-category="express" data-title="express route params query body request response">
+              <header><span>Express</span><h3>Params, query, and body</h3><button class="copy-button" type="button">Copy</button></header>
+              <p>Route params identify a resource, query values filter, and the body carries submitted data.</p>
+              <pre><code>app.patch("/tasks/:id", async (req, res) => {
+  const id = req.params.id;
+  const completed = req.body.completed;
+  const includeOwner = req.query.includeOwner === "true";
+
+  // validate → update → respond
+});</code></pre>
+            </article>
+
+            <article class="syntax-card" data-category="express" data-title="rest api methods status get post patch delete">
+              <header><span>Backend</span><h3>REST-style routes</h3><button class="copy-button" type="button">Copy</button></header>
+              <p>Use predictable resource URLs, HTTP methods, statuses, and error shapes.</p>
+              <pre><code>GET    /tasks       // list → 200
+GET    /tasks/:id   // retrieve → 200 or 404
+POST   /tasks       // create → 201
+PATCH  /tasks/:id   // update → 200 or 404
+DELETE /tasks/:id   // delete → 204 or 404</code></pre>
+            </article>
+
+            <article class="syntax-card" data-category="express" data-title="validation api error response try catch">
+              <header><span>Backend</span><h3>Consistent API errors</h3><button class="copy-button" type="button">Copy</button></header>
+              <p>Validate at the server boundary. Do not leak stack traces or secrets to clients.</p>
+              <pre><code>{
+  "error": {
+    "code": "VALIDATION_ERROR",
+    "message": "title is required",
+    "details": { "field": "title" }
+  }
+}</code></pre>
+            </article>
+
+            <article class="syntax-card" data-category="express" data-title="express error middleware next status">
+              <header><span>Express</span><h3>Error middleware</h3><button class="copy-button" type="button">Copy</button></header>
+              <p>Forward unexpected errors to one final boundary and return a safe response.</p>
+              <pre><code>app.use((error, req, res, next) => {
+  console.error(error);
+  res.status(500).json({
+    error: { code: "INTERNAL_ERROR", message: "Something went wrong" }
+  });
+});</code></pre>
+            </article>
+
+            <article class="syntax-card" data-category="mongo" data-title="mongodb document collection insert find update delete crud">
+              <header><span>MongoDB</span><h3>MongoDB CRUD</h3><button class="copy-button" type="button">Copy</button></header>
+              <p>MongoDB stores BSON-like documents inside collections.</p>
+              <pre><code>db.tasks.insertOne({ title: "Learn Mongo", done: false });
+db.tasks.find({ done: false });
+db.tasks.findOne({ _id: ObjectId(id) });
+db.tasks.updateOne({ _id: ObjectId(id) }, { $set: { done: true } });
+db.tasks.deleteOne({ _id: ObjectId(id) });</code></pre>
+            </article>
+
+            <article class="syntax-card" data-category="mongo" data-title="mongoose connect schema model validation timestamps">
+              <header><span>MongoDB</span><h3>Mongoose schema and model</h3><button class="copy-button" type="button">Copy</button></header>
+              <p>Mongoose adds schemas, validation, models, and query helpers to MongoDB.</p>
+              <pre><code>import mongoose from "mongoose";
+
+const taskSchema = new mongoose.Schema({
+  title: { type: String, required: true, trim: true, maxlength: 120 },
+  completed: { type: Boolean, default: false },
+  owner: { type: mongoose.Schema.Types.ObjectId, ref: "User", required: true }
+}, { timestamps: true });
+
+export const Task = mongoose.model("Task", taskSchema);</code></pre>
+            </article>
+
+            <article class="syntax-card" data-category="mongo" data-title="mongoose query find findbyid create update populate lean">
+              <header><span>MongoDB</span><h3>Mongoose queries</h3><button class="copy-button" type="button">Copy</button></header>
+              <p>Queries are async. Filter by the authenticated owner on protected resources.</p>
+              <pre><code>const task = await Task.create({ title, owner: userId });
+
+const tasks = await Task.find({ owner: userId })
+  .sort({ createdAt: -1 })
+  .limit(20)
+  .lean();
+
+const updated = await Task.findOneAndUpdate(
+  { _id: id, owner: userId },
+  { $set: changes },
+  { new: true, runValidators: true }
+);</code></pre>
+            </article>
+
+            <article class="syntax-card" data-category="mongo" data-title="mongodb index unique compound performance">
+              <header><span>MongoDB</span><h3>Indexes</h3><button class="copy-button" type="button">Copy</button></header>
+              <p>Indexes speed reads but cost storage and write work. Base them on real queries.</p>
+              <pre><code>// Supports listing one user's tasks newest first.
+taskSchema.index({ owner: 1, createdAt: -1 });
+
+// Enforce unique email.
+userSchema.index({ email: 1 }, { unique: true });</code></pre>
+            </article>
+
+            <article class="syntax-card" data-category="mern" data-title="mern react fetch express api mongodb integration cors">
+              <header><span>MERN</span><h3>React calls Express</h3><button class="copy-button" type="button">Copy</button></header>
+              <p>The React client calls an API route; Express validates, uses Mongoose, and returns JSON.</p>
+              <pre><code>// React/client
+const response = await fetch("/api/tasks");
+if (!response.ok) throw new Error("Could not load tasks");
+const tasks = await response.json();
+
+// Express/server
+app.get("/api/tasks", async (req, res) => {
+  const tasks = await Task.find({ owner: req.user.id }).lean();
+  res.json(tasks);
+});</code></pre>
+            </article>
+
+            <article class="syntax-card" data-category="mern" data-title="mern folder structure client server models routes controllers middleware">
+              <header><span>MERN</span><h3>Project structure</h3><button class="copy-button" type="button">Copy</button></header>
+              <p>Organize by responsibility without creating layers that do nothing.</p>
+              <pre><code>mern-app/
+  client/src/
+    components/ pages/ api/ hooks/
+  server/src/
+    models/ routes/ controllers/ middleware/
+    app.js  server.js
+  server/tests/
+  .env.example
+  README.md</code></pre>
+            </article>
+
+            <article class="syntax-card" data-category="mern" data-title="jwt cookie auth login password bcrypt authorization">
+              <header><span>MERN</span><h3>Authentication flow</h3><button class="copy-button" type="button">Copy</button></header>
+              <p>Hash passwords, issue a secure session/token, then authorize each protected resource on the server.</p>
+              <pre><code>// Login idea
+const user = await User.findOne({ email });
+const valid = user &amp;&amp; await bcrypt.compare(password, user.passwordHash);
+if (!valid) return res.status(401).json({ error: "Invalid credentials" });
+
+// Prefer an httpOnly, secure cookie for browser auth.
+res.cookie("session", token, { httpOnly: true, secure: true, sameSite: "lax" });</code></pre>
+            </article>
+
+            <article class="syntax-card" data-category="mern" data-title="environment variables vite api url mongodb uri secret cors">
+              <header><span>MERN</span><h3>Environment configuration</h3><button class="copy-button" type="button">Copy</button></header>
+              <p>Secrets stay on the server. Values exposed to the frontend are public.</p>
+              <pre><code># server/.env (never commit real values)
+MONGODB_URI=mongodb://127.0.0.1:27017/task-app
+SESSION_SECRET=replace-me
+PORT=3000
+
+# client/.env
+VITE_API_URL=http://localhost:3000</code></pre>
+            </article>
+
+            <article class="syntax-card" data-category="bonus" data-title="sql select join bonus relational database">
+              <header><span>Database</span><h3>SQL query and join</h3><button class="copy-button" type="button">Copy</button></header>
+              <p>Use parameterized queries. Join related rows through foreign keys.</p>
+              <pre><code>SELECT tasks.id, tasks.title, users.email
+FROM tasks
+JOIN users ON users.id = tasks.owner_id
+WHERE tasks.completed = $1
+ORDER BY tasks.created_at DESC
+LIMIT $2;</code></pre>
+            </article>
+
+            <article class="syntax-card" data-category="mern" data-title="authentication authorization security sql injection xss">
+              <header><span>Security</span><h3>Auth and security boundaries</h3><button class="copy-button" type="button">Copy</button></header>
+              <p>Authentication answers who; authorization checks whether that identity may perform this action.</p>
+              <pre><code>// Parameterized SQL prevents injection.
+db.query("SELECT * FROM users WHERE email = $1", [email]);
+
+// Always authorize resource ownership on the server.
+if (task.ownerId !== currentUser.id) {
+  return sendError(403, "FORBIDDEN");
+}</code></pre>
+            </article>
+
+            <article class="syntax-card" data-category="testing" data-title="node test assert unit test arrange act assert">
+              <header><span>Testing</span><h3>Node test runner</h3><button class="copy-button" type="button">Copy</button></header>
+              <p>Test behavior: arrange input, act, then assert the observable result.</p>
+              <pre><code>import test from "node:test";
+import assert from "node:assert/strict";
+
+test("add returns the sum", () => {
+  assert.equal(add(2, 3), 5);
+});</code></pre>
+            </article>
+
+            <article class="syntax-card" data-category="testing" data-title="async test rejects deep equal">
+              <header><span>Testing</span><h3>Async and object assertions</h3><button class="copy-button" type="button">Copy</button></header>
+              <p>Await async behavior and assert rejected promises explicitly.</p>
+              <pre><code>test("loads user", async () => {
+  const user = await loadUser("u1");
+  assert.deepEqual(user, { id: "u1", name: "Ana" });
+});
+
+await assert.rejects(() => loadUser("missing"), /not found/i);</code></pre>
+            </article>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <div id="reference-tooltip" class="reference-tooltip" role="tooltip" hidden></div>
+
+    <dialog id="reference-dialog" class="reference-dialog" aria-labelledby="reference-title">
+      <div class="dialog-shell">
+        <header class="dialog-header">
+          <div>
+            <p id="reference-category" class="eyebrow">Syntax reference</p>
+            <h2 id="reference-title">Reference</h2>
+          </div>
+          <button id="close-reference" class="icon-button" type="button" aria-label="Close reference">×</button>
+        </header>
+
+        <p id="reference-summary" class="reference-summary"></p>
+
+        <section class="reference-section" aria-labelledby="reference-meaning-heading">
+          <h3 id="reference-meaning-heading">Meaning</h3>
+          <p id="reference-meaning"></p>
+        </section>
+
+        <section class="reference-section" aria-labelledby="reference-code-heading">
+          <h3 id="reference-code-heading">Syntax pattern</h3>
+          <pre><code id="reference-code"></code></pre>
+        </section>
+
+        <section id="reference-example-section" class="reference-section" aria-labelledby="reference-example-heading">
+          <h3 id="reference-example-heading">Small example</h3>
+          <pre><code id="reference-example"></code></pre>
+        </section>
+
+        <section id="reference-terms-section" class="reference-section" aria-labelledby="reference-terms-heading" hidden>
+          <h3 id="reference-terms-heading">Keywords in this snippet</h3>
+          <div id="reference-terms" class="reference-terms"></div>
+        </section>
+
+        <footer class="dialog-footer">
+          <span>Tip: press <kbd>Esc</kbd> to close</span>
+          <button id="copy-reference-link" type="button">Copy reference link</button>
+        </footer>
+      </div>
+    </dialog>
+  </body>
+</html>

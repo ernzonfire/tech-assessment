@@ -1,0 +1,17 @@
+{
+  "name": "javascript-fullstack-grind",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test:day1": "node --test exercises/javascript/day-01-foundations.test.js",
+    "test:day2": "node --test exercises/javascript/day-02-data.test.js",
+    "test:day3": "node --test exercises/javascript/day-03-async.test.js",
+    "test:js": "node --test exercises/javascript/*.test.js",
+    "test:api": "node --test exercises/backend/task-api/*.test.js",
+    "check": "node --check exercises/javascript/day-01-foundations.js && node --check exercises/javascript/day-02-data.js && node --check exercises/javascript/day-03-async.js && node --check exercises/frontend/vanilla-dashboard/app.js && node --check exercises/backend/task-api/server.js"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
