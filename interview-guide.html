@@ -162,76 +162,86 @@
             </div>
             <span>34 questions</span>
           </div>
-          <p class="section-intro">Open a topic, answer each question aloud, then verify your explanation in the syntax library or documentation.</p>
+          <p class="section-intro">Open a topic, try answering aloud, then expand the question to compare your explanation with the suggested answer.</p>
 
           <div class="question-groups">
             <details class="question-group" open>
               <summary><span><b>HTML</b><small>Documents, scripts, and language</small></span><strong>2</strong></summary>
               <ol>
-                <li>What’s the difference between <code>async</code> and <code>defer</code> attributes used in a <code>&lt;script&gt;</code> tag?</li>
-                <li>How do you serve a page with content in multiple languages?</li>
+                <li>
+                  <details class="answer-item">
+                    <summary>What’s the difference between <code>async</code> and <code>defer</code> attributes used in a <code>&lt;script&gt;</code> tag?</summary>
+                    <div class="answer"><strong>Suggested answer</strong><p>Both download an external script while HTML parsing continues. <code>async</code> executes as soon as its download finishes, so execution order is not guaranteed and it may interrupt parsing. <code>defer</code> waits until parsing is complete, preserves document order, and runs before <code>DOMContentLoaded</code>. I use <code>defer</code> for scripts that depend on the DOM or each other, and <code>async</code> for independent scripts such as analytics.</p></div>
+                  </details>
+                </li>
+                <li>
+                  <details class="answer-item">
+                    <summary>How do you serve a page with content in multiple languages?</summary>
+                    <div class="answer"><strong>Suggested answer</strong><p>I store interface text in locale files instead of hard-coding it, then select the correct translations using an internationalization library or server-side locale logic. Each page should set the correct <code>lang</code> attribute, use UTF-8, provide an explicit language switcher, and expose localized URLs with <code>hreflang</code> when pages are indexed. I also account for plural rules, dates, currencies, and right-to-left layouts rather than translating words only.</p></div>
+                  </details>
+                </li>
               </ol>
             </details>
 
             <details class="question-group">
               <summary><span><b>CSS</b><small>Layout, selectors, and responsive design</small></span><strong>9</strong></summary>
               <ol>
-                <li>Explain your understanding of the box model.</li>
-                <li>What’s the difference between a relative, fixed, absolute, and statically positioned element?</li>
-                <li>What’s the difference between <code>inline</code> and <code>inline-block</code>?</li>
-                <li>What is CSS selector specificity, and how does it work?</li>
-                <li>What are functions and mixins?</li>
-                <li>Have you used Flexbox or CSS Grid before? What did you think?</li>
-                <li>What are the differences between Flexbox and CSS Grid?</li>
-                <li>How do you implement mobile-specific layouts?</li>
-                <li>How do you decide which responsive breakpoint to use?</li>
+                <li><details class="answer-item"><summary>Explain your understanding of the box model.</summary><div class="answer"><strong>Suggested answer</strong><p>Every element is a rectangular box made of content, padding, border, and margin. With the default <code>content-box</code>, a declared width applies only to the content, so padding and borders increase the rendered size. With <code>box-sizing: border-box</code>, the declared width includes content, padding, and border, which usually makes layouts easier to size.</p></div></details></li>
+                <li><details class="answer-item"><summary>What’s the difference between a relative, fixed, absolute, and statically positioned element?</summary><div class="answer"><strong>Suggested answer</strong><p><code>static</code> is the normal document flow. <code>relative</code> keeps its original space but can be offset and becomes a containing block for positioned descendants. <code>absolute</code> leaves normal flow and is positioned relative to its nearest positioned ancestor. <code>fixed</code> also leaves normal flow but is normally positioned relative to the viewport, so it stays in place while scrolling.</p></div></details></li>
+                <li><details class="answer-item"><summary>What’s the difference between <code>inline</code> and <code>inline-block</code>?</summary><div class="answer"><strong>Suggested answer</strong><p>Both can sit within a line instead of starting a new row. A normal inline element flows with text and generally ignores explicit width and height; vertical margins also do not affect surrounding lines in the same way. An <code>inline-block</code> element stays inline externally but behaves like a box internally, so width, height, padding, and margins can be controlled.</p></div></details></li>
+                <li><details class="answer-item"><summary>What is CSS selector specificity, and how does it work?</summary><div class="answer"><strong>Suggested answer</strong><p>Specificity is the browser’s scoring system for choosing between competing declarations. Inline styles outrank IDs, IDs outrank classes, attributes, and pseudo-classes, and those outrank element selectors and pseudo-elements. If specificity is equal, the later declaration wins. I keep selectors shallow and avoid <code>!important</code> except for deliberate utility or override cases.</p></div></details></li>
+                <li><details class="answer-item"><summary>What are functions and mixins?</summary><div class="answer"><strong>Suggested answer</strong><p>CSS functions accept values and calculate or transform a result, such as <code>calc()</code>, <code>min()</code>, <code>clamp()</code>, and <code>var()</code>. A mixin is a reusable group of declarations, commonly provided by preprocessors such as Sass with <code>@mixin</code> and <code>@include</code>. Traditional mixins are not part of broadly supported plain CSS, so I also use custom properties, utility classes, and component styles for reuse.</p></div></details></li>
+                <li><details class="answer-item"><summary>Have you used Flexbox or CSS Grid before? What did you think?</summary><div class="answer"><strong>Suggested answer</strong><p>Yes. I use both because they remove many manual positioning hacks and make responsive alignment more predictable. Flexbox is especially convenient for navbars, toolbars, and rows of controls, while Grid is excellent for page structure and card layouts. I choose based on the layout relationship instead of treating one as a replacement for the other.</p></div></details></li>
+                <li><details class="answer-item"><summary>What are the differences between Flexbox and CSS Grid?</summary><div class="answer"><strong>Suggested answer</strong><p>Flexbox is mainly one-dimensional: it lays items out along a row or a column and is content-driven. Grid is two-dimensional: it controls rows and columns together and is more layout-driven. They work well together—for example, Grid can define the page or card columns while Flexbox aligns controls inside each card.</p></div></details></li>
+                <li><details class="answer-item"><summary>How do you implement mobile-specific layouts?</summary><div class="answer"><strong>Suggested answer</strong><p>I start with a usable mobile layout, use flexible widths and responsive units, then add media or container queries when the content needs more space. I change layout rather than merely shrinking it—for example, stacking columns, simplifying navigation, keeping touch targets large, and preventing horizontal overflow. I test with real content, keyboard input, and several viewport sizes.</p></div></details></li>
+                <li><details class="answer-item"><summary>How do you decide which responsive breakpoint to use?</summary><div class="answer"><strong>Suggested answer</strong><p>I choose breakpoints where the actual content or layout begins to fail, not from a list of specific device models. I resize the layout, identify the point where text, controls, or spacing become uncomfortable, and add the smallest query that resolves it. This keeps the design resilient to new screen sizes.</p></div></details></li>
               </ol>
             </details>
 
             <details class="question-group">
               <summary><span><b>JavaScript</b><small>Language fundamentals and async behavior</small></span><strong>8</strong></summary>
               <ol>
-                <li>Explain how <code>this</code> works in JavaScript.</li>
-                <li>What is a closure?</li>
-                <li>What is hoisting?</li>
-                <li>What is JSX?</li>
-                <li>What is the difference between <code>==</code> and <code>===</code>?</li>
-                <li>What is a ternary expression?</li>
-                <li>What is a Promise?</li>
-                <li>What is a callback?</li>
+                <li><details class="answer-item"><summary>Explain how <code>this</code> works in JavaScript.</summary><div class="answer"><strong>Suggested answer</strong><p>For a regular function, <code>this</code> is determined by how the function is called: as an object method, with <code>new</code>, with <code>call</code>/<code>apply</code>/<code>bind</code>, or as a plain function. Arrow functions do not create their own <code>this</code>; they capture it lexically from the surrounding scope. That is why extracting a method or changing its call site can change its <code>this</code> value.</p></div></details></li>
+                <li><details class="answer-item"><summary>What is a closure?</summary><div class="answer"><strong>Suggested answer</strong><p>A closure is a function together with access to the lexical variables that existed where it was created, even after the outer function has finished. Closures are useful for private state, callbacks, and function factories. For example, a counter function can remember its own count between calls without using a global variable.</p></div></details></li>
+                <li><details class="answer-item"><summary>What is hoisting?</summary><div class="answer"><strong>Suggested answer</strong><p>Hoisting describes how declarations are processed before execution. Function declarations can be called before their source line. <code>var</code> is initialized to <code>undefined</code>, while <code>let</code> and <code>const</code> exist in a temporal dead zone until their declaration is evaluated, so accessing them early throws an error. I still declare values before use for clarity.</p></div></details></li>
+                <li><details class="answer-item"><summary>What is JSX?</summary><div class="answer"><strong>Suggested answer</strong><p>JSX is a syntax extension commonly used with React that lets us describe UI with HTML-like markup inside JavaScript. It is transformed into JavaScript element-creation calls, so it is not HTML and can embed expressions with braces. JSX also uses JavaScript-friendly names such as <code>className</code> and requires a single returned parent or fragment.</p></div></details></li>
+                <li><details class="answer-item"><summary>What is the difference between <code>==</code> and <code>===</code>?</summary><div class="answer"><strong>Suggested answer</strong><p><code>==</code> performs loose equality and may convert operands before comparing them, which can produce surprising results such as <code>0 == false</code>. <code>===</code> performs strict equality without type coercion, so both type and value must match. I use <code>===</code> by default and only use loose equality when its conversion behavior is intentional.</p></div></details></li>
+                <li><details class="answer-item"><summary>What is a ternary expression?</summary><div class="answer"><strong>Suggested answer</strong><p>The conditional or ternary operator is an expression with three parts: <code>condition ? valueIfTrue : valueIfFalse</code>. It is useful for short value selection, including conditional JSX. If the logic has multiple branches or side effects, I prefer an <code>if</code> statement because it is easier to read.</p></div></details></li>
+                <li><details class="answer-item"><summary>What is a Promise?</summary><div class="answer"><strong>Suggested answer</strong><p>A Promise represents the eventual result of an asynchronous operation. It starts pending and then becomes fulfilled with a value or rejected with an error. I can consume it with <code>.then()</code>/<code>.catch()</code> or with <code>async</code>/<code>await</code>, and I handle rejection rather than assuming the operation succeeds.</p></div></details></li>
+                <li><details class="answer-item"><summary>What is a callback?</summary><div class="answer"><strong>Suggested answer</strong><p>A callback is a function passed to another function so it can be called later or for each item. Event handlers and array methods such as <code>map</code> use callbacks. Asynchronous callbacks can become deeply nested, so Promises and <code>async</code>/<code>await</code> often provide clearer control flow, but callbacks remain a fundamental JavaScript pattern.</p></div></details></li>
               </ol>
             </details>
 
             <details class="question-group">
               <summary><span><b>React</b><small>Components, data flow, and rendering</small></span><strong>6</strong></summary>
               <ol>
-                <li>What is state? What are props? What is the difference between them?</li>
-                <li>What are two ways to create components in React?</li>
-                <li>How does the Virtual DOM work?</li>
-                <li>What is prop drilling, and how can you avoid it?</li>
-                <li>How can you style your React components?</li>
-                <li>Why are keys important?</li>
+                <li><details class="answer-item"><summary>What is state? What are props? What is the difference between them?</summary><div class="answer"><strong>Suggested answer</strong><p>Props are read-only inputs passed from a parent to a component. State is data owned by a component whose update can trigger a re-render. A component should never mutate either directly: the parent supplies new props, while state is updated through React’s state setter or reducer. I keep state as close as possible to the components that need it.</p></div></details></li>
+                <li><details class="answer-item"><summary>What are two ways to create components in React?</summary><div class="answer"><strong>Suggested answer</strong><p>React components can be written as functions or classes. Modern React code normally uses function components with Hooks because they are concise and compose reusable behavior well. Class components use lifecycle methods and <code>this</code>, and they are still important when maintaining older applications or using class-based error boundaries.</p></div></details></li>
+                <li><details class="answer-item"><summary>How does the Virtual DOM work?</summary><div class="answer"><strong>Suggested answer</strong><p>When props or state change, React creates a new description of the UI and reconciles it with the previous one. Using element types and keys, it determines which real DOM updates are required, then commits those changes efficiently. The Virtual DOM is not automatically faster than every manual update; its main value is a predictable declarative programming model and batched reconciliation.</p></div></details></li>
+                <li><details class="answer-item"><summary>What is prop drilling, and how can you avoid it?</summary><div class="answer"><strong>Suggested answer</strong><p>Prop drilling is passing data through intermediate components that do not need it just so a deep descendant can receive it. I first consider component composition or moving state closer to where it is used. For truly shared values I may use Context, a state-management library, or a server-state library, but I avoid adding global state for ordinary local data.</p></div></details></li>
+                <li><details class="answer-item"><summary>How can you style your React components?</summary><div class="answer"><strong>Suggested answer</strong><p>Options include regular stylesheets, CSS Modules, utility classes such as Tailwind, CSS-in-JS libraries, inline styles, and component libraries. I choose based on the project’s conventions, theming needs, runtime cost, and how much style isolation is required. Regardless of the tool, I keep styles accessible, responsive, and maintainable.</p></div></details></li>
+                <li><details class="answer-item"><summary>Why are keys important?</summary><div class="answer"><strong>Suggested answer</strong><p>Keys give list items stable identities across renders, helping React match old and new elements during reconciliation. A good key is unique among siblings and stable for the lifetime of the item, usually a database ID. Array indexes can cause incorrect state or unnecessary updates when items are inserted, removed, or reordered.</p></div></details></li>
               </ol>
             </details>
 
             <details class="question-group">
               <summary><span><b>Node.js + databases</b><small>Runtime, packages, and data stores</small></span><strong>3</strong></summary>
               <ol>
-                <li>What is the event loop?</li>
-                <li>What’s the purpose of <code>package-lock.json</code>?</li>
-                <li>What is the difference between SQL and NoSQL databases?</li>
+                <li><details class="answer-item"><summary>What is the event loop?</summary><div class="answer"><strong>Suggested answer</strong><p>JavaScript executes on a call stack, while Node delegates many I/O operations to the operating system or its worker pool. When work completes, callbacks are queued, and the event loop processes them through its phases when the stack is available; Promise microtasks run at defined points with high priority. This model enables high I/O concurrency, but CPU-heavy synchronous work can still block every request.</p></div></details></li>
+                <li><details class="answer-item"><summary>What’s the purpose of <code>package-lock.json</code>?</summary><div class="answer"><strong>Suggested answer</strong><p>It records the exact resolved dependency tree, including transitive package versions and integrity hashes. Committing it makes installs more reproducible across developers and CI and lets <code>npm ci</code> perform a clean deterministic install. <code>package.json</code> describes the allowed dependency ranges; the lockfile records what was actually resolved.</p></div></details></li>
+                <li><details class="answer-item"><summary>What is the difference between SQL and NoSQL databases?</summary><div class="answer"><strong>Suggested answer</strong><p>SQL databases use relational tables, schemas, joins, and SQL, and they are strong when relationships and transactional consistency matter. NoSQL is an umbrella term for document, key-value, wide-column, and graph databases, often with more flexible data models or specialized scaling patterns. I choose based on access patterns, relationships, consistency needs, and operations—not because one category is universally better.</p></div></details></li>
               </ol>
             </details>
 
             <details class="question-group">
               <summary><span><b>Core web concepts</b><small>Architecture, inclusion, and performance</small></span><strong>6</strong></summary>
               <ol>
-                <li>What is object-oriented programming?</li>
-                <li>What is a RESTful API?</li>
-                <li>What is web accessibility?</li>
-                <li>How do you pay attention to a site’s performance?</li>
-                <li>What performance techniques do you use?</li>
-                <li>How would you measure whether a performance improvement worked?</li>
+                <li><details class="answer-item"><summary>What is object-oriented programming?</summary><div class="answer"><strong>Suggested answer</strong><p>Object-oriented programming organizes software around objects that combine data and behavior. Common ideas are encapsulation, abstraction, inheritance, and polymorphism. In JavaScript I can use classes and prototypes, but I also favor composition when it creates simpler, less tightly coupled code.</p></div></details></li>
+                <li><details class="answer-item"><summary>What is a RESTful API?</summary><div class="answer"><strong>Suggested answer</strong><p>A RESTful API models data as resources identified by URLs and uses HTTP semantics consistently: methods such as GET, POST, PATCH, and DELETE, meaningful status codes, headers, and representations such as JSON. Requests should be stateless, so each contains the context needed to process it. For example, <code>GET /tasks/42</code> retrieves one task and <code>PATCH /tasks/42</code> changes part of it.</p></div></details></li>
+                <li><details class="answer-item"><summary>What is web accessibility?</summary><div class="answer"><strong>Suggested answer</strong><p>Web accessibility means people with visual, auditory, motor, cognitive, or other disabilities can perceive and operate the product. I start with semantic HTML, labels, keyboard support, visible focus, sufficient contrast, meaningful alternatives, and clear errors, then test with keyboard and assistive technology. Accessibility is part of design and engineering quality, not a final checklist.</p></div></details></li>
+                <li><details class="answer-item"><summary>How do you pay attention to a site’s performance?</summary><div class="answer"><strong>Suggested answer</strong><p>I define a performance budget, measure both lab and real-user behavior, and focus on user-visible metrics such as loading, responsiveness, and layout stability. I profile before optimizing so I can find the actual bottleneck. I also monitor after release because device speed, network conditions, and real data can differ from local development.</p></div></details></li>
+                <li><details class="answer-item"><summary>What performance techniques do you use?</summary><div class="answer"><strong>Suggested answer</strong><p>I compress and correctly size images, lazy-load noncritical media, minimize and split JavaScript, defer nonessential work, cache static assets, reduce request count and payload size, optimize fonts, and avoid expensive rendering. On the server I inspect queries, use pagination and caching where appropriate, and stream or pre-render content when it improves the experience.</p></div></details></li>
+                <li><details class="answer-item"><summary>How would you measure whether a performance improvement worked?</summary><div class="answer"><strong>Suggested answer</strong><p>I capture a baseline, change one meaningful variable, and compare the same scenario and device conditions. I use browser profiling and tools such as Lighthouse for diagnosis, then verify field metrics and product outcomes after release. I look for improvements in both technical metrics and user impact without causing regressions elsewhere.</p></div></details></li>
               </ol>
             </details>
           </div>
@@ -247,14 +257,38 @@
           </div>
 
           <div class="prompt-grid">
-            <article><span>01</span><h3>What is SDLC?</h3><p>Explain the Software Development Life Cycle and how work moves from planning through maintenance.</p></article>
-            <article><span>02</span><h3>What is Git?</h3><p>Describe version control and the branching strategies you are familiar with.</p></article>
-            <article><span>03</span><h3>How do you ensure software quality?</h3><p>Discuss code review, manual testing, unit tests, integration tests, and end-to-end automation.</p></article>
-            <article><span>04</span><h3>How do you continuously learn?</h3><p>Explain how you choose topics, practice, apply feedback, and measure improvement.</p></article>
-            <article><span>05</span><h3>Which standards do you apply?</h3><p>Talk about readability, consistency, accessibility, security, testing, and documentation.</p></article>
-            <article><span>06</span><h3>What excites you about coding?</h3><p>Connect your motivation to the kind of problems and users you enjoy serving.</p></article>
-            <article><span>07</span><h3>What recent challenge did you solve?</h3><p>Share your diagnosis, options, decision, result, and lesson—not just the bug itself.</p></article>
-            <article><span>08</span><h3>What is your web page workflow?</h3><p>Walk through requirements, structure, implementation, testing, review, and delivery.</p></article>
+            <article>
+              <span>01</span><h3>What is SDLC?</h3><p>Explain the Software Development Life Cycle and how work moves from planning through maintenance.</p>
+              <details><summary>View suggested answer</summary><p>SDLC is the structured process used to plan, build, release, and maintain software. It normally includes requirements, planning and design, implementation, testing, deployment, and maintenance. The phases may be sequential or iterative; in Agile teams we move through them in smaller cycles and use feedback from each release to guide the next one.</p></details>
+            </article>
+            <article>
+              <span>02</span><h3>What is Git?</h3><p>Describe version control and the branching strategies you are familiar with.</p>
+              <details><summary>View suggested answer</summary><p>Git is a distributed version-control system that records code history and lets developers work safely in parallel. I use branches for isolated changes, make focused commits, review diffs, and merge through pull requests. I’m familiar with feature branches and trunk-based development; Git Flow can suit release-heavy products, while short-lived branches are usually simpler for continuous delivery.</p></details>
+            </article>
+            <article>
+              <span>03</span><h3>How do you ensure software quality?</h3><p>Discuss code review, manual testing, unit tests, integration tests, and end-to-end automation.</p>
+              <details><summary>View suggested answer</summary><p>I build quality into the workflow: clarify acceptance criteria, keep changes small, use linting and type checks, review code, and test at the right levels. Unit tests cover isolated logic, integration tests cover boundaries such as APIs and databases, and a smaller number of end-to-end tests protect critical user flows. I also do exploratory and accessibility testing because automation cannot catch every usability problem.</p></details>
+            </article>
+            <article>
+              <span>04</span><h3>How do you continuously learn?</h3><p>Explain how you choose topics, practice, apply feedback, and measure improvement.</p>
+              <details><summary>View suggested answer</summary><p>I connect learning to a real goal instead of collecting tutorials. I read primary documentation, build a small example, apply the idea in a project, and explain it in my own words. I keep notes on gaps found during reviews or interviews and revisit them through coding exercises, then measure progress by whether I can solve and explain the problem without a guide.</p></details>
+            </article>
+            <article>
+              <span>05</span><h3>Which standards do you apply?</h3><p>Talk about readability, consistency, accessibility, security, testing, and documentation.</p>
+              <details><summary>View suggested answer</summary><p>I optimize first for understandable and maintainable code: clear names, small focused units, consistent formatting, explicit error handling, and minimal duplication. I follow the project’s conventions, validate input at trust boundaries, use semantic and accessible UI patterns, and add tests around important behavior. I document decisions and non-obvious trade-offs rather than restating the code.</p></details>
+            </article>
+            <article>
+              <span>06</span><h3>What excites you about coding?</h3><p>Connect your motivation to the kind of problems and users you enjoy serving.</p>
+              <details><summary>View suggested answer</summary><p>I enjoy turning an unclear problem into something people can use. Coding combines logical problem-solving with continuous feedback: I can form a hypothesis, build a small solution, test it, and improve it. Frontend work especially interests me because technical decisions immediately affect usability, accessibility, and how confident a user feels.</p></details>
+            </article>
+            <article>
+              <span>07</span><h3>What recent challenge did you solve?</h3><p>Share your diagnosis, options, decision, result, and lesson—not just the bug itself.</p>
+              <details><summary>Customize this answer</summary><p>Choose a real recent issue. A strong structure is: “Users experienced [specific symptom]. I reproduced it with [method], inspected [logs/tests/network/state], and found [root cause]. I considered [options] and chose [solution] because [trade-off]. After adding [test or monitoring], the result was [measurable outcome]. I learned [specific lesson].”</p></details>
+            </article>
+            <article>
+              <span>08</span><h3>What is your web page workflow?</h3><p>Walk through requirements, structure, implementation, testing, review, and delivery.</p>
+              <details><summary>View suggested answer</summary><p>I first clarify the user goal, content, states, constraints, and acceptance criteria. I outline semantic HTML and the responsive layout, then build the smallest usable version before adding interactions. I test keyboard use, accessibility, different viewport sizes, loading and error states, performance, and browser behavior, then review the diff, get feedback, deploy, and monitor the result.</p></details>
+            </article>
           </div>
         </section>
 
@@ -273,13 +307,29 @@
             <div><b>A</b><span><strong>Action</strong>Explain what you did and why.</span></div>
             <div><b>R</b><span><strong>Result</strong>Share the outcome and lesson.</span></div>
           </div>
+          <p class="answer-disclaimer">These are practice examples. Replace them with truthful details, decisions, and results from your own experience.</p>
 
           <ol class="situation-list">
-            <li><span>01</span><p>Describe the most exciting project you have worked on and the biggest challenge you faced.</p></li>
-            <li><span>02</span><p>Give an example of a time when you set a goal and were able to meet or achieve it.</p></li>
-            <li><span>03</span><p>Give an example of a time when you set a goal and were not able to achieve it. What did you learn?</p></li>
-            <li><span>04</span><p>You’re working on a project with a tight deadline, but you are stuck because you do not know how to solve a bug. How will you handle the situation?</p></li>
-            <li><span>05</span><p>Tell us about a time you wrote code that you later realized could be significantly improved.</p></li>
+            <li>
+              <span>01</span>
+              <div><p>Describe the most exciting project you have worked on and the biggest challenge you faced.</p><details class="situation-answer"><summary>View sample STAR answer</summary><p><strong>Situation:</strong> I built a learning dashboard where users could read concepts and run JavaScript exercises in the browser. <strong>Task:</strong> I needed to make code execution useful without allowing an infinite loop to freeze the page. <strong>Action:</strong> I moved execution into a Web Worker, added a time limit, isolated each run, and returned structured test results. <strong>Result:</strong> The interface stayed responsive even for broken solutions, and I learned to treat user-provided code as an isolation and resource-control problem.</p></details></div>
+            </li>
+            <li>
+              <span>02</span>
+              <div><p>Give an example of a time when you set a goal and were able to meet or achieve it.</p><details class="situation-answer"><summary>View sample STAR answer</summary><p><strong>Situation:</strong> I wanted to strengthen my JavaScript fundamentals before building a full-stack project. <strong>Task:</strong> My goal was to finish a structured set of lessons and tested exercises within four weeks. <strong>Action:</strong> I divided the material into daily topics, tracked completion, practiced without copying solutions, and reviewed mistakes every weekend. <strong>Result:</strong> I completed the plan on time and could explain and test the core concepts more confidently. The key was using small measurable milestones instead of one broad goal.</p></details></div>
+            </li>
+            <li>
+              <span>03</span>
+              <div><p>Give an example of a time when you set a goal and were not able to achieve it. What did you learn?</p><details class="situation-answer"><summary>View sample STAR answer</summary><p><strong>Situation:</strong> I planned to finish an entire project in one week while learning several new tools at the same time. <strong>Task:</strong> I wanted to deliver every planned feature by the deadline. <strong>Action:</strong> I worked through the list but realized late that I had not estimated integration and testing work. <strong>Result:</strong> I delivered the core flow but missed secondary features. I learned to separate must-haves from optional scope, identify unknowns early, add testing time, and communicate risk before the deadline.</p></details></div>
+            </li>
+            <li>
+              <span>04</span>
+              <div><p>You’re working on a project with a tight deadline, but you are stuck because you do not know how to solve a bug. How will you handle the situation?</p><details class="situation-answer"><summary>View suggested answer</summary><p>I would first make the bug reproducible, reduce it to the smallest failing case, and inspect logs, inputs, recent changes, and documentation. I would time-box independent investigation so I do not hide the risk. If I remain stuck, I would ask a teammate with a concise summary of what I expected, what happened, and what I already tried. I would communicate the deadline impact early, propose a safe workaround or scope reduction if needed, and add a regression test once the cause is fixed.</p></details></div>
+            </li>
+            <li>
+              <span>05</span>
+              <div><p>Tell us about a time you wrote code that you later realized could be significantly improved.</p><details class="situation-answer"><summary>View sample STAR answer</summary><p><strong>Situation:</strong> I initially built a form with validation, API calls, and UI updates inside one large event handler. <strong>Task:</strong> When new fields were added, changes became risky and tests were difficult to write. <strong>Action:</strong> I separated pure validation, request handling, and rendering into focused functions, defined consistent error results, and added unit tests before changing behavior. <strong>Result:</strong> The code became easier to test and extend. I learned to refactor around clear responsibilities, but only after protecting existing behavior with tests.</p></details></div>
+            </li>
           </ol>
         </section>
 

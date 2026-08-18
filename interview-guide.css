@@ -113,28 +113,40 @@ main { width: min(100%, 88rem); padding: clamp(1.4rem, 4vw, 4rem); }
 
 .question-groups { display: grid; gap: 0.65rem; }
 .question-group { border: 1px solid var(--line); border-radius: 0.85rem; background: var(--panel); overflow: hidden; }
-.question-group summary { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 1rem 1.2rem; cursor: pointer; list-style: none; }
-.question-group summary::-webkit-details-marker { display: none; }
-.question-group summary:hover { background: var(--soft); }
-.question-group summary > span { display: grid; grid-template-columns: 8rem 1fr; align-items: center; gap: 0.8rem; }
-.question-group summary b { font-size: 1rem; }
-.question-group summary small { color: var(--muted); }
-.question-group summary strong { width: 2rem; height: 2rem; display: grid; place-items: center; border-radius: 50%; color: var(--green); background: var(--green-light); font-size: 0.75rem; }
-.question-group[open] summary { border-bottom: 1px solid var(--line); }
+.question-group > summary { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 1rem 1.2rem; cursor: pointer; list-style: none; }
+.question-group > summary::-webkit-details-marker { display: none; }
+.question-group > summary:hover { background: var(--soft); }
+.question-group > summary > span { display: grid; grid-template-columns: 8rem 1fr; align-items: center; gap: 0.8rem; }
+.question-group > summary b { font-size: 1rem; }
+.question-group > summary small { color: var(--muted); }
+.question-group > summary strong { width: 2rem; height: 2rem; display: grid; place-items: center; border-radius: 50%; color: var(--green); background: var(--green-light); font-size: 0.75rem; }
+.question-group[open] > summary { border-bottom: 1px solid var(--line); }
 .question-group ol { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0; margin: 0; padding: 0; list-style: none; counter-reset: concept-question; }
-.question-group li { counter-increment: concept-question; display: grid; grid-template-columns: 2rem 1fr; gap: 0.7rem; padding: 1rem 1.2rem; color: #465048; font-size: 0.88rem; line-height: 1.55; border-bottom: 1px solid #edf0ed; }
+.question-group li { counter-increment: concept-question; min-width: 0; display: grid; grid-template-columns: 2rem minmax(0, 1fr); align-content: start; gap: 0.7rem; padding: 1rem 1.2rem; color: #465048; font-size: 0.88rem; line-height: 1.55; border-bottom: 1px solid #edf0ed; }
 .question-group li:nth-child(odd) { border-right: 1px solid #edf0ed; }
 .question-group li::before { content: counter(concept-question, decimal-leading-zero); color: #9aa39c; font: 700 0.68rem ui-monospace, monospace; }
 .question-group code { padding: 0.1rem 0.3rem; border-radius: 0.25rem; color: var(--green); background: var(--green-light); font: 0.82em ui-monospace, monospace; }
+.answer-item { min-width: 0; }
+.answer-item > summary { position: relative; padding-right: 5.5rem; color: #38423b; font-weight: 700; cursor: pointer; list-style: none; }
+.answer-item > summary::-webkit-details-marker { display: none; }
+.answer-item > summary::after { content: "Answer +"; position: absolute; top: 0; right: 0; padding: 0.15rem 0.35rem; border-radius: 0.35rem; color: var(--green); background: var(--green-light); font-size: 0.62rem; font-weight: 850; letter-spacing: 0.04em; text-transform: uppercase; }
+.answer-item[open] > summary::after { content: "Close −"; }
+.answer { margin-top: 0.8rem; padding: 0.85rem; border-left: 3px solid #7bb78d; border-radius: 0 0.55rem 0.55rem 0; background: #f1f8f3; }
+.answer strong { display: block; margin-bottom: 0.3rem; color: var(--green); font-size: 0.66rem; letter-spacing: 0.08em; text-transform: uppercase; }
+.answer p { margin: 0; color: #536057; font-size: 0.8rem; line-height: 1.62; }
 
 .prompt-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0.75rem; }
 .prompt-grid article { min-height: 13rem; display: flex; flex-direction: column; padding: 1.1rem; border: 1px solid var(--line); border-radius: 0.85rem; background: var(--panel); }
 .prompt-grid span { color: #99a29b; font: 750 0.7rem ui-monospace, monospace; }
 .prompt-grid h3 { margin: 1.5rem 0 0; font-size: 1rem; }
 .prompt-grid p { margin: 0.6rem 0 0; color: var(--muted); font-size: 0.82rem; line-height: 1.6; }
+.prompt-grid details { margin-top: auto; padding-top: 1rem; }
+.prompt-grid details summary { width: max-content; max-width: 100%; padding: 0.35rem 0.5rem; border: 1px solid #bfd4c5; border-radius: 0.45rem; color: var(--green); background: #f2f8f3; font-size: 0.68rem; font-weight: 800; cursor: pointer; }
+.prompt-grid details[open] summary { margin-bottom: 0.5rem; }
 .prompt-grid article:nth-child(3), .prompt-grid article:nth-child(7) { color: white; background: var(--green); border-color: var(--green); }
 .prompt-grid article:nth-child(3) span, .prompt-grid article:nth-child(7) span { color: #a7d7b4; }
 .prompt-grid article:nth-child(3) p, .prompt-grid article:nth-child(7) p { color: #d5e9da; }
+.prompt-grid article:nth-child(3) details summary, .prompt-grid article:nth-child(7) details summary { border-color: #76aa84; color: #d9f0df; background: #2c7049; }
 
 .star-strip { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); border: 1px solid var(--line); border-radius: 0.9rem; background: var(--panel); overflow: hidden; }
 .star-strip > div { display: grid; grid-template-columns: 2.5rem 1fr; align-items: center; gap: 0.7rem; padding: 1rem; border-right: 1px solid var(--line); }
@@ -142,10 +154,15 @@ main { width: min(100%, 88rem); padding: clamp(1.4rem, 4vw, 4rem); }
 .star-strip b { width: 2.5rem; height: 2.5rem; display: grid; place-items: center; border-radius: 0.65rem; color: white; background: var(--green); font-size: 1.1rem; }
 .star-strip span { color: var(--muted); font-size: 0.75rem; line-height: 1.35; }
 .star-strip strong { display: block; color: var(--ink); font-size: 0.82rem; }
+.answer-disclaimer { margin: 0.9rem 0 0; color: var(--muted); font-size: 0.78rem; font-style: italic; }
 .situation-list { display: grid; gap: 0.7rem; margin: 1rem 0 0; padding: 0; list-style: none; }
-.situation-list li { display: grid; grid-template-columns: 3rem 1fr; gap: 1rem; align-items: center; min-height: 5rem; padding: 1rem 1.2rem; border: 1px solid var(--line); border-radius: 0.8rem; background: var(--panel); }
+.situation-list li { display: grid; grid-template-columns: 3rem minmax(0, 1fr); gap: 1rem; align-items: start; min-height: 5rem; padding: 1rem 1.2rem; border: 1px solid var(--line); border-radius: 0.8rem; background: var(--panel); }
 .situation-list span { color: var(--green); font: 800 0.75rem ui-monospace, monospace; }
 .situation-list p { margin: 0; color: #404a42; line-height: 1.55; }
+.situation-answer { margin-top: 0.7rem; }
+.situation-answer summary { width: max-content; max-width: 100%; padding: 0.35rem 0.5rem; border: 1px solid #bfd4c5; border-radius: 0.45rem; color: var(--green); background: #f2f8f3; font-size: 0.68rem; font-weight: 800; cursor: pointer; }
+.situation-answer[open] summary { margin-bottom: 0.7rem; }
+.situation-answer p { padding: 0.9rem; border-left: 3px solid #7bb78d; border-radius: 0 0.55rem 0.55rem 0; color: #536057; background: #f1f8f3; font-size: 0.82rem; }
 
 .coding-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
 .coding-card { min-width: 0; padding: clamp(1.25rem, 3vw, 2rem); border-radius: 1rem; color: white; background: var(--code); }
@@ -200,8 +217,8 @@ main { width: min(100%, 88rem); padding: clamp(1.4rem, 4vw, 4rem); }
   .project-framework ol, .prompt-grid, .star-strip { grid-template-columns: 1fr; }
   .star-strip > div { border-right: 0; border-bottom: 1px solid var(--line); }
   .star-strip > div:last-child { border-bottom: 0; }
-  .question-group summary > span { grid-template-columns: 1fr; gap: 0.2rem; }
-  .question-group summary small { display: none; }
+  .question-group > summary > span { grid-template-columns: 1fr; gap: 0.2rem; }
+  .question-group > summary small { display: none; }
   .coding-tip, .guide-footer { align-items: stretch; flex-direction: column; }
   .guide-footer a { text-align: center; }
 }
