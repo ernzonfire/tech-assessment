@@ -1,4 +1,9 @@
+import { debuggingChallenges } from "./debugging-challenges.js";
+import { arrayFundamentalsChallenges } from "./array-fundamentals-challenges.js";
+import { retakeFoundationChallenges } from "./retake-foundation-challenges.js";
+
 export const challenges = [
+  ...retakeFoundationChallenges,
   {
     id: "greet-user",
     title: "Greet the User",
@@ -598,4 +603,6 @@ export const challenges = [
       { label: "empty input", args: [[]], expected: {} },
     ],
   },
+  ...arrayFundamentalsChallenges,
+  ...debuggingChallenges,
 ];

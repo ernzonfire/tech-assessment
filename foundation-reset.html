@@ -1,0 +1,397 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="A guided JavaScript code-reading and debugging reset for a technical assessment retake." />
+    <title>Foundation Reset · MERN Grind</title>
+    <link rel="stylesheet" href="./foundation-reset.css" />
+    <script type="module" src="./foundation-reset.js"></script>
+  </head>
+  <body>
+    <header class="reset-topbar">
+      <a class="reset-brand" href="./index.html">
+        <span>JS</span>
+        <strong>Foundation Reset</strong>
+      </a>
+      <nav aria-label="Main navigation">
+        <a href="./index.html">Library</a>
+        <a href="./practice.html?challenge=retake-valid-rating">Practice Lab</a>
+        <a href="./interview-guide.html">Interview guide</a>
+      </nav>
+      <div class="header-progress" aria-live="polite">
+        <span id="header-progress-label">0 / 15 done</span>
+        <div><i id="header-progress-bar"></i></div>
+      </div>
+    </header>
+
+    <div class="reset-layout">
+      <aside class="lesson-nav" aria-label="Foundation reset lessons">
+        <p>Retake path</p>
+        <a href="#start"><span>01</span>Start here</a>
+        <a href="#reading"><span>02</span>Read any code</a>
+        <a href="#shapes"><span>03</span>Know the data</a>
+        <a href="#trace"><span>04</span>Trace execution</a>
+        <a href="#methods"><span>05</span>Array methods</a>
+        <a href="#assessment"><span>06</span>Hunt the bugs</a>
+        <a href="#debug-order"><span>07</span>Debug in order</a>
+        <a href="#plan"><span>08</span>Seven-day plan</a>
+        <a href="#practice"><span>09</span>Finish the drills</a>
+        <div class="sidebar-rule">
+          <strong>One rule</strong>
+          <p>Predict first. Run second. Explain the result aloud.</p>
+        </div>
+      </aside>
+
+      <main>
+        <section id="start" class="reset-hero">
+          <div>
+            <p class="eyebrow">Retake foundation reset</p>
+            <h1>Code reading first.<br /><em>MERN later.</em></h1>
+            <p class="hero-copy">Dili nimo kinahanglan i-memorize ang whole program. Ang goal kay masundan nimo ang value—from input, through each function, until output.</p>
+            <div class="hero-actions">
+              <a class="primary-button" href="#reading">Start the guided lesson</a>
+              <a class="secondary-button" href="./practice.html?challenge=retake-valid-rating">Go straight to drills</a>
+            </div>
+          </div>
+          <article class="mission-card">
+            <span>This week's target</span>
+            <strong>Read → Trace → Debug</strong>
+            <p>Five assessment-focused drills, one final simulation, and a seven-day checklist.</p>
+            <div class="mission-steps">
+              <span><b>1</b> Identify the data</span>
+              <span><b>2</b> Follow the call</span>
+              <span><b>3</b> Fix one failure</span>
+            </div>
+          </article>
+        </section>
+
+        <section class="truth-panel" aria-label="Foundation feedback">
+          <strong>The feedback is a starting point, not a verdict.</strong>
+          <p>Based on the assessment, the gaps are specific: arrays vs objects, values and types, parameters vs arguments, property access, callbacks, execution flow, and debugging order. Specific gaps can be trained.</p>
+        </section>
+
+        <section id="reading" class="lesson-section">
+          <header class="section-heading">
+            <div><p class="eyebrow">Lesson 01</p><h2>How to read any code</h2></div>
+            <label class="completion"><input type="checkbox" data-progress="reading" /> Mark understood</label>
+          </header>
+          <p class="section-intro">Ayaw pagsugod by understanding every symbol. Pangitaa una ang execution start, then answer four questions for every important line.</p>
+
+          <div class="question-grid">
+            <article><span>01</span><h3>What is the value?</h3><p>Example: <code>items</code> currently contains ten item objects.</p></article>
+            <article><span>02</span><h3>What is its type?</h3><p>Array, object, string, number, boolean, <code>null</code>, or <code>undefined</code>?</p></article>
+            <article><span>03</span><h3>What enters?</h3><p>Which arguments are passed into this function call?</p></article>
+            <article><span>04</span><h3>What returns?</h3><p>What value leaves the function and where is it stored?</p></article>
+          </div>
+
+          <div class="translation-card">
+            <div>
+              <p>JavaScript</p>
+              <pre><code>const validItems = searchValidItems(items);</code></pre>
+            </div>
+            <span aria-hidden="true">→</span>
+            <div>
+              <p>Ordinary words</p>
+              <strong>Pass <code>items</code> into <code>searchValidItems</code>, then store its returned array in <code>validItems</code>.</strong>
+            </div>
+          </div>
+
+          <aside class="remember-box"><strong>Parameter vs argument:</strong> <code>array</code> is the receiving parameter in the function declaration. <code>items</code> is the actual argument in the call.</aside>
+        </section>
+
+        <section id="shapes" class="lesson-section">
+          <header class="section-heading">
+            <div><p class="eyebrow">Lesson 02</p><h2>Know the shape of the data</h2></div>
+            <label class="completion"><input type="checkbox" data-progress="shapes" /> Mark understood</label>
+          </header>
+          <p class="section-intro">Most bugs become easier when you label the shape beside each variable before reading the operation.</p>
+
+          <div class="shape-board">
+            <pre><code>const items = [
+  { name: "Item A", rating: 5 },
+  { name: "Item D", rating: null }
+];</code></pre>
+            <div class="shape-tree" aria-label="Data shape breakdown">
+              <span><code>items</code><b>Array</b></span>
+              <span><code>items[0]</code><b>Object</b></span>
+              <span><code>items[0].name</code><b>String</b></span>
+              <span><code>items[0].rating</code><b>Number</b></span>
+              <span><code>items[1].rating</code><b>null</b></span>
+            </div>
+          </div>
+
+          <div class="quick-check" data-correct="object">
+            <div><p>Quick check</p><h3>Inside <code>.find(item =&gt; ...)</code>, what is <code>item</code>?</h3></div>
+            <div class="answer-buttons">
+              <button type="button" data-answer="string">String</button>
+              <button type="button" data-answer="object">Object</button>
+              <button type="button" data-answer="array">Array</button>
+            </div>
+            <p class="quiz-feedback" aria-live="polite"></p>
+          </div>
+
+          <aside class="warning-box"><strong>JavaScript quirk:</strong> <code>typeof null</code> is <code>"object"</code>. For valid finite numeric ratings, <code>Number.isFinite(item.rating)</code> is safer than a truthy check because rating <code>0</code> is valid.</aside>
+        </section>
+
+        <section id="trace" class="lesson-section trace-section">
+          <header class="section-heading">
+            <div><p class="eyebrow">Lesson 03 · Interactive</p><h2>Trace the execution</h2></div>
+            <label class="completion"><input type="checkbox" data-progress="trace" /> Mark understood</label>
+          </header>
+          <p class="section-intro">Click “Next step.” The highlighted line is the line currently executing—not necessarily the next line visually on the page.</p>
+
+          <div class="trace-workbench">
+            <div class="trace-code" aria-label="Traceable JavaScript code">
+              <ol>
+                <li data-line="1"><code>function searchValidItems(array) {</code></li>
+                <li data-line="2"><code>  return array.filter((item) =&gt;</code></li>
+                <li data-line="3"><code>    Number.isFinite(item.rating)</code></li>
+                <li data-line="4"><code>  );</code></li>
+                <li data-line="5"><code>}</code></li>
+                <li data-line="6"><code></code></li>
+                <li data-line="7"><code>function sortByRating(array) {</code></li>
+                <li data-line="8"><code>  return [...array].sort(</code></li>
+                <li data-line="9"><code>    (a, b) =&gt; b.rating - a.rating</code></li>
+                <li data-line="10"><code>  );</code></li>
+                <li data-line="11"><code>}</code></li>
+                <li data-line="12"><code></code></li>
+                <li data-line="13"><code>function getRating(itemName, array) {</code></li>
+                <li data-line="14"><code>  const item = array.find(</code></li>
+                <li data-line="15"><code>    (item) =&gt; item.name === itemName</code></li>
+                <li data-line="16"><code>  );</code></li>
+                <li data-line="17"><code>  return item ? item.rating : null;</code></li>
+                <li data-line="18"><code>}</code></li>
+                <li data-line="19"><code></code></li>
+                <li data-line="20"><code>function main() { /* create items, call helpers */ }</code></li>
+                <li data-line="21"><code>main();</code></li>
+              </ol>
+            </div>
+            <article class="trace-state">
+              <p id="trace-counter">Step 1 of 10</p>
+              <h3 id="trace-title">Start at the function call</h3>
+              <p id="trace-explanation">The declarations above prepare reusable functions. The program starts running when <code>main()</code> is called.</p>
+              <dl>
+                <div><dt>Current value</dt><dd id="trace-value"><code>main</code> = function</dd></div>
+                <div><dt>Next move</dt><dd id="trace-next">Enter the body of <code>main</code>.</dd></div>
+              </dl>
+              <button id="next-trace" class="primary-button" type="button">Next step</button>
+              <button id="reset-trace" class="text-button" type="button">Restart trace</button>
+            </article>
+          </div>
+
+          <div class="pipeline" aria-label="Assessment data flow">
+            <span><b>items</b><small>array of objects</small></span><i>filter</i>
+            <span><b>validItems</b><small>new array</small></span><i>sort</i>
+            <span><b>sortedItems</b><small>new ordered array</small></span><i>find</i>
+            <span><b>rating</b><small>number or null</small></span>
+          </div>
+        </section>
+
+        <section id="methods" class="lesson-section">
+          <header class="section-heading">
+            <div><p class="eyebrow">Lesson 04</p><h2>Three array methods, three jobs</h2></div>
+            <label class="completion"><input type="checkbox" data-progress="methods" /> Mark understood</label>
+          </header>
+          <div class="method-grid">
+            <article>
+              <span>Many → fewer</span><h3><code>.filter()</code></h3>
+              <pre><code>items.filter((item) =&gt;
+  Number.isFinite(item.rating)
+);</code></pre>
+              <p>Callback returns a boolean for every item. All passing items go into a new array.</p>
+            </article>
+            <article>
+              <span>Many → one</span><h3><code>.find()</code></h3>
+              <pre><code>items.find((item) =&gt;
+  item.name === itemName
+);</code></pre>
+              <p>Stops at the first match. Returns one object or <code>undefined</code>.</p>
+            </article>
+            <article>
+              <span>Same items → new order</span><h3><code>.sort()</code></h3>
+              <pre><code>[...items].sort((a, b) =&gt;
+  b.rating - a.rating
+);</code></pre>
+              <p><code>b - a</code> is descending. Copy first because <code>.sort()</code> mutates.</p>
+            </article>
+          </div>
+          <div class="quick-check" data-correct="filter">
+            <div><p>Quick check</p><h3>Which method returns every item that passes a condition?</h3></div>
+            <div class="answer-buttons">
+              <button type="button" data-answer="find">find</button>
+              <button type="button" data-answer="filter">filter</button>
+              <button type="button" data-answer="sort">sort</button>
+            </div>
+            <p class="quiz-feedback" aria-live="polite"></p>
+          </div>
+        </section>
+
+        <section id="assessment" class="lesson-section assessment-section">
+          <header class="section-heading">
+            <div><p class="eyebrow">Lesson 05 · Your assessment</p><h2>Hunt the bugs deliberately</h2></div>
+            <label class="completion"><input type="checkbox" data-progress="assessment" /> Mark reviewed</label>
+          </header>
+          <p class="section-intro">This code contains multiple independent bugs. Fixing one may reveal the next. That does not mean your first fix failed.</p>
+
+          <div class="assessment-grid">
+            <pre class="broken-code"><code>function searchValidItems(array) {
+  return array.filter(
+    item =&gt; typeof item.rating === "string"
+  );
+}
+
+function sortByRating(array) {
+  return array.sort(
+    (a, b) =&gt; b.rating - a.rating
+  );
+}
+
+function getRating(itemName, array) {
+  const item = array.find(
+    item =&gt; itemName === item
+  );
+  return item ? item.rating : null;
+}
+
+function main() {
+  const item = [ /* item objects */ ];
+
+  const validItems = searchValidItems(items);
+  const sortedItems = sortByRating();
+  const ratingOfItemA = getRating(
+    "Item A", validItems
+  );
+}</code></pre>
+
+            <div class="bug-stack">
+              <details>
+                <summary><span>Bug 01</span>Which ratings are valid?</summary>
+                <p>The data uses numbers, not strings. Use <code>Number.isFinite(item.rating)</code> so <code>0</code> stays valid while <code>null</code>, strings, <code>NaN</code>, and infinities are removed.</p>
+              </details>
+              <details>
+                <summary><span>Bug 02</span>Which variable actually exists?</summary>
+                <p><code>const item</code> is declared, but <code>items</code> is used later. Variable names must match exactly. For a collection, declare <code>const items</code>.</p>
+              </details>
+              <details>
+                <summary><span>Bug 03</span>What input does sorting receive?</summary>
+                <p><code>sortByRating</code> expects an array parameter, but the call passes nothing. Call <code>sortByRating(validItems)</code>.</p>
+              </details>
+              <details>
+                <summary><span>Bug 04</span>String compared with object?</summary>
+                <p><code>itemName</code> is a string while <code>item</code> is an object. Compare <code>item.name === itemName</code>.</p>
+              </details>
+              <details>
+                <summary><span>Bug 05</span>Why did validItems change order?</summary>
+                <p><code>.sort()</code> mutates its array. Use <code>[...array].sort(...)</code> when the valid and sorted arrays should remain separate.</p>
+              </details>
+              <details>
+                <summary><span>Possible syntax bug</span>Were Markdown fences pasted?</summary>
+                <p>If literal <code>```javascript</code> fences are inside the source file, remove them. They format Markdown; they are not JavaScript syntax.</p>
+              </details>
+            </div>
+          </div>
+
+          <details class="solution-reveal">
+            <summary>Show the fixed reference only after tracing the bugs</summary>
+            <pre><code>function searchValidItems(array) {
+  return array.filter((item) =&gt; Number.isFinite(item.rating));
+}
+
+function sortByRating(array) {
+  return [...array].sort((a, b) =&gt; b.rating - a.rating);
+}
+
+function getRating(itemName, array) {
+  const item = array.find((item) =&gt; item.name === itemName);
+  return item ? item.rating : null;
+}
+
+function main() {
+  const items = [
+    { name: "Item A", rating: 5 },
+    { name: "Item B", rating: 2 },
+    { name: "Item C", rating: 4 },
+    { name: "Item D", rating: null },
+    { name: "Item H", rating: 0 }
+  ];
+
+  const validItems = searchValidItems(items);
+  const sortedItems = sortByRating(validItems);
+  const ratingOfItemA = getRating("Item A", validItems);
+
+  console.log("Valid Items:", validItems);
+  console.log("Sorted Items:", sortedItems);
+  console.log("Rating of Item A:", ratingOfItemA);
+}
+
+main();</code></pre>
+          </details>
+        </section>
+
+        <section id="debug-order" class="lesson-section">
+          <header class="section-heading">
+            <div><p class="eyebrow">Lesson 06</p><h2>Debug in this order</h2></div>
+            <label class="completion"><input type="checkbox" data-progress="debug-order" /> Mark understood</label>
+          </header>
+          <ol class="debug-sequence">
+            <li><span>1</span><div><strong>Run before editing</strong><p>Capture the first exact error or failed test. Do not fix five guesses at once.</p></div></li>
+            <li><span>2</span><div><strong>Fix syntax errors</strong><p>Missing brackets, parentheses, quotes, or pasted Markdown can stop parsing.</p></div></li>
+            <li><span>3</span><div><strong>Fix runtime errors</strong><p>Check undefined variable names, missing arguments, and unsafe property access.</p></div></li>
+            <li><span>4</span><div><strong>Fix logic errors</strong><p>Trace one input. Compare actual types, properties, conditions, and returned values.</p></div></li>
+            <li><span>5</span><div><strong>Check boundaries and side effects</strong><p>Test zero, null, missing data, duplicates, empty arrays, and mutation.</p></div></li>
+            <li><span>6</span><div><strong>Explain the root cause</strong><p>Say: expected, actual, cause, smallest fix. If you cannot explain it, trace again.</p></div></li>
+          </ol>
+          <div class="console-example">
+            <div><p>Temporary trace</p><pre><code>console.log({ itemName, item });
+console.log(item.name === itemName);</code></pre></div>
+            <div><p>What it proves</p><pre><code>{ itemName: "Item A",
+  item: { name: "Item A", rating: 5 } }
+true</code></pre></div>
+          </div>
+        </section>
+
+        <section id="plan" class="lesson-section plan-section">
+          <header class="section-heading">
+            <div><p class="eyebrow">Lesson 07</p><h2>Your seven-day retake plan</h2></div>
+            <label class="completion"><input type="checkbox" data-progress="plan-reviewed" /> Plan reviewed</label>
+          </header>
+          <p class="section-intro">Target 60–90 focused minutes daily. Every day ends with code you personally typed, ran, and explained.</p>
+          <div class="day-grid">
+            <label><input type="checkbox" data-day="1" /><span><b>Day 1</b><strong>Values + types</strong><small>Predict <code>typeof</code>, truthy/falsy, null, undefined, and zero.</small></span></label>
+            <label><input type="checkbox" data-day="2" /><span><b>Day 2</b><strong>Arrays + objects</strong><small>Label shapes and practice property access with real objects.</small></span></label>
+            <label><input type="checkbox" data-day="3" /><span><b>Day 3</b><strong>Functions + flow</strong><small>Trace parameters, arguments, calls, scope, and return values.</small></span></label>
+            <label><input type="checkbox" data-day="4" /><span><b>Day 4</b><strong>filter + find</strong><small>Predict each callback result before running the array method.</small></span></label>
+            <label><input type="checkbox" data-day="5" /><span><b>Day 5</b><strong>sort + mutation</strong><small>Practice ascending, descending, spread copies, and zero.</small></span></label>
+            <label><input type="checkbox" data-day="6" /><span><b>Day 6</b><strong>Debugging lab</strong><small>Fix one failure at a time and write a short root-cause note.</small></span></label>
+            <label><input type="checkbox" data-day="7" /><span><b>Day 7</b><strong>Mock retake</strong><small>Closed notes, timed, then explain every fix aloud.</small></span></label>
+          </div>
+        </section>
+
+        <section id="practice" class="lesson-section practice-section">
+          <header class="section-heading">
+            <div><p class="eyebrow">Final step</p><h2>Finish all five retake drills</h2></div>
+            <label class="completion"><input type="checkbox" data-progress="practice-started" /> Practice started</label>
+          </header>
+          <div class="drill-grid">
+            <a href="./practice.html?challenge=retake-valid-rating"><span>01 · Types</span><strong>Recognize a Valid Rating</strong><small>number, null, zero, finite values</small></a>
+            <a href="./practice.html?challenge=retake-filter-ratings"><span>02 · Filter</span><strong>Filter Valid Items</strong><small>array callback and boolean decision</small></a>
+            <a href="./practice.html?challenge=retake-find-rating"><span>03 · Find</span><strong>Find Rating by Name</strong><small>object property vs whole object</small></a>
+            <a href="./practice.html?challenge=retake-sort-ratings"><span>04 · Sort</span><strong>Sort Without Mutation</strong><small>descending comparator and spread</small></a>
+            <a class="final-drill" href="./practice.html?challenge=retake-debug-assessment"><span>05 · Final simulation</span><strong>Debug the Full Assessment</strong><small>all five bugs connected in one pipeline</small></a>
+          </div>
+          <div class="ready-check">
+            <p>Ready means you can do all four—not that you feel zero nervousness.</p>
+            <ul>
+              <li>Label each variable's type.</li>
+              <li>Trace arguments into parameters.</li>
+              <li>Fix the first failure before the next.</li>
+              <li>Explain why each fix works.</li>
+            </ul>
+            <a class="primary-button" href="./practice.html?challenge=retake-valid-rating">Start drill 1</a>
+          </div>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>

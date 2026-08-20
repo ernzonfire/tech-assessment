@@ -19,16 +19,18 @@ Target: **2–3 focused hours/day, 6 days/week**. Kung 1 hour/day ra, okay gihap
 
 Today, do only this:
 
-1. Read [reviewers/01-js-foundations.md](reviewers/01-js-foundations.md).
-2. Open [exercises/javascript/day-01-foundations.js](exercises/javascript/day-01-foundations.js) and solve every `TODO`.
-3. Run:
+1. Open [foundation-reset.html](foundation-reset.html) and finish the guided code-reading trace.
+2. Open [practice.html?challenge=retake-valid-rating](practice.html?challenge=retake-valid-rating) and finish all five **Retake Foundation** drills in order.
+3. Read [reviewers/01-js-foundations.md](reviewers/01-js-foundations.md).
+4. Open [exercises/javascript/day-01-foundations.js](exercises/javascript/day-01-foundations.js) and solve every `TODO`.
+5. Run:
 
    ```bash
    npm run test:day1
    ```
 
-4. Update [PROGRESS.md](PROGRESS.md).
-5. Send Codex your test output plus a short explanation of your hardest function. Then we do the Day 1 oral check.
+6. Update [PROGRESS.md](PROGRESS.md).
+7. Send Codex your test output plus a short explanation of your hardest function. Then we do the Day 1 oral check.
 
 Do **not** open `assessments/` yet. Those are timed, closed-notes simulations.
 
@@ -46,6 +48,23 @@ npm run check
 
 Recommended: Node.js 20 or newer.
 
+## Debugging Lab
+
+Open `practice.html`, then choose **Debugging Lab** in the challenge list. The
+10 activities start with intentionally broken code instead of an empty
+function. For every activity:
+
+1. Run the starter code before changing anything.
+2. Read the error or failing test and classify it: syntax, runtime, logic,
+   boundary, control flow, mutation, data, async, scope, or falsy-value bug.
+3. Trace one failing input by hand or add a temporary `console.log`.
+4. Make the smallest reasonable code change.
+5. Run all tests, remove temporary logs, and explain the root cause aloud.
+
+Use **Reset** whenever you want to repeat an activity from its original broken
+state. Ask Codex for one hint at a time if you are stuck; avoid asking for the
+finished solution immediately.
+
 ## What you will build
 
 - JavaScript utility problems with automated tests
@@ -62,4 +81,3 @@ The complete sequence is in [CURRICULUM.md](CURRICULUM.md). Quick recall materia
 - Exercise phase: docs are allowed; ask for hints before asking for a solution.
 - Assessment phase: no AI and no copying. Docs are allowed only if the assessment says so.
 - If stuck for 20 minutes: write what you know, reduce the problem, inspect one failing case, then ask for **one hint**.
-
